@@ -3,14 +3,14 @@
 
 namespace Wbc\AdministratorBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture; 
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Wbc\AdministratorBundle\Entity\User;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-class LoadUserData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     private $container;
 
@@ -23,7 +23,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
     {
         //admin
         $user = new User();
-        $user->setUsername('admin');
+        $user->setUsername('admin2');
         $user->setEmail('admin@admin');
         $user->setEnabled(true);
         $user->setFirstName('Usuario');

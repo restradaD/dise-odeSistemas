@@ -2,11 +2,11 @@
 
 namespace Wbc\AdministratorBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Wbc\AdministratorBundle\Entity\Settings;
 
-class LoadSettingsData implements FixtureInterface
+class LoadSettingsData implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {

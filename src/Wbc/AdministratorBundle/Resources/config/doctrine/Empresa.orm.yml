@@ -1,0 +1,33 @@
+Wbc\AdministratorBundle\Entity\Empresa:
+    type: entity
+    table: empresa
+    repositoryClass: Wbc\AdministratorBundle\Repository\EmpresaRepository
+    id:
+        id:
+            type: integer
+            id: true 
+    fields:
+        nombre:
+            type: string
+            length: 255
+        telefono:
+            type: string
+            length: '45'
+        correo:
+            type: string
+            length: '45'
+        slogan:
+            type: string
+            length: 255
+        nit:
+            type: string
+            length: '45'
+        descripcion:
+            type: string
+            length: 255
+            nullable: true
+    oneToMany:
+      empleado:
+        targetEntity: Empleado
+        mappedBy: empresa
+    lifecycleCallbacks: {  }

@@ -1,0 +1,19 @@
+Wbc\AdministratorBundle\Entity\Linea:
+    type: entity
+    table: linea
+    repositoryClass: Wbc\AdministratorBundle\Repository\LineaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: 255
+        descripcion:
+            type: string
+            length: '500'
+            nullable: true
+    lifecycleCallbacks: {  }

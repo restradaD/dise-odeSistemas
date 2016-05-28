@@ -1,0 +1,44 @@
+Wbc\AdministratorBundle\Entity\Empleado:
+    type: entity
+    table: empleado
+    repositoryClass: Wbc\AdministratorBundle\Repository\EmpleadoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sueldo:
+            type: decimal
+            precision: 10
+            scale: '2'
+        totalFeriado:
+            type: integer
+            column: total_feriado
+        fechaCreacion:
+            type: datetime
+            column: fecha_creacion
+    manyToOne:
+      user:
+        targetEntity: User
+        inversedBy: empleado
+        joinColumns:
+          user_id:
+            referencedColumnName: id
+            nullable: false
+      beneficio:
+        targetEntity: Beneficio
+        inversedBy: empleado
+        joinColumns:
+          beneficio_id:
+            referencedColumnName: id
+            nullable: false
+      empresa:
+        targetEntity: Empresa
+        inversedBy: empleado
+        joinColumns:
+          empresa_id:
+            referencedColumnName: id
+            nullable: false
+    lifecycleCallbacks: {  }

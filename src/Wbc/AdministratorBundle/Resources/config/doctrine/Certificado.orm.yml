@@ -1,0 +1,41 @@
+Wbc\AdministratorBundle\Entity\Certificado:
+    type: entity
+    table: certificado
+    repositoryClass: Wbc\AdministratorBundle\Repository\CertificadoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: 255
+        descripcion:
+            type: string
+            length: '500'
+            nullable: true
+        terminoCondicion:
+            type: text
+            column: termino_condicion
+        iniciaVigencia:
+            type: datetime
+            nullable: true
+            column: inicia_vigencia
+        finVigencia:
+            type: datetime
+            nullable: true
+            column: fin_vigencia
+        fechaCreacion:
+            type: datetime
+            column: fecha_creacion
+    manyToOne:
+      producto:
+        targetEntity: Producto
+        inversedBy: certificado
+        joinColumns:
+          producto_id:
+            referencedColumnName: id
+            nullable: false
+    lifecycleCallbacks: {  }

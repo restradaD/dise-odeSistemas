@@ -44,3 +44,6 @@ Wbc\AdministratorBundle\Entity\User:
     auth_client:
       targetEntity: Wbc\AuthBundle\Entity\OAuthClient
       mappedBy: user
+    empleado:
+        targetEntity: user
+        mappedBy: empleado

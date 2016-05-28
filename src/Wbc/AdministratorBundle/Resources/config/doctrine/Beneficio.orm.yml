@@ -1,0 +1,37 @@
+Wbc\AdministratorBundle\Entity\Beneficio:
+    type: entity
+    table: beneficio
+    repositoryClass: Wbc\AdministratorBundle\Repository\BeneficioRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        bono14:
+            type: decimal
+            precision: 10
+            scale: '2'
+            column: bono_14
+        aguinaldo:
+            type: decimal
+            precision: 10
+            scale: '2'
+        bonificacionIncentivo:
+            type: decimal
+            precision: 10
+            scale: '2'
+            column: bonificacion_incentivo
+        descripcion:
+            type: string
+            length: '500'
+            nullable: true
+        fechaCreacion:
+            type: datetime
+            column: fecha_creacion
+    oneToMany:
+      empleado:
+        targetEntity: Empleado
+        mappedBy: beneficio
+    lifecycleCallbacks: {  }

@@ -1,0 +1,46 @@
+Wbc\AdministratorBundle\Entity\Producto:
+    type: entity
+    table: producto
+    repositoryClass: Wbc\AdministratorBundle\Repository\ProductoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '500'
+        precioVenta:
+            type: decimal
+            precision: 10
+            scale: '2'
+            column: precio_venta
+        precioCompra:
+            type: decimal
+            precision: 10
+            scale: '2'
+            column: precio_compra
+        existencia:
+            type: integer
+        imagen:
+            type: string
+            length: '500'
+            nullable: true
+        descripcion:
+            type: string
+            length: '500'
+            nullable: true
+        fechaCreacion:
+            type: datetime
+            column: fecha_creacion
+        fechaEdicion:
+            type: datetime
+            nullable: true
+            column: fecha_edicion
+    oneToMany:
+      certificado:
+        targetEntity: Certificado
+        mappedBy: producto
+    lifecycleCallbacks: {  }

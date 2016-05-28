@@ -1,0 +1,32 @@
+Wbc\AdministratorBundle\Entity\Proveedor:
+    type: entity
+    table: proveedor
+    repositoryClass: Wbc\AdministratorBundle\Repository\ProveedorRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '300'
+        telefono:
+            type: string
+            length: '45'
+        correo:
+            type: string
+            length: '45'
+        direccion:
+            type: string
+            length: '300'
+            nullable: true
+        nit:
+            type: string
+            length: '45'
+            nullable: true
+        fechaCreacion:
+            type: datetime
+            column: fecha_creacion
+    lifecycleCallbacks: {  }

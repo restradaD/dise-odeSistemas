@@ -1,0 +1,23 @@
+producto_index:
+    path:     /
+    defaults: { _controller: "WbcAdministratorBundle:Producto:index" }
+    methods:  GET
+
+producto_show:
+    path:     /{id}/show
+    defaults: { _controller: "WbcAdministratorBundle:Producto:show" }
+    methods:  GET
+
+producto_new:
+    path:     /new
+    defaults: { _controller: "WbcAdministratorBundle:Producto:new" }
+    methods:  [GET, POST]
+
+producto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAdministratorBundle:Producto:edit" }
+    methods:  [GET, POST]
+
+producto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAdministratorBundle:Producto:delete" }

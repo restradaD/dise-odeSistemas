@@ -1,0 +1,23 @@
+empleado_index:
+    path:     /
+    defaults: { _controller: "WbcAdministratorBundle:Empleado:index" }
+    methods:  GET
+
+empleado_show:
+    path:     /{id}/show
+    defaults: { _controller: "WbcAdministratorBundle:Empleado:show" }
+    methods:  GET
+
+empleado_new:
+    path:     /new
+    defaults: { _controller: "WbcAdministratorBundle:Empleado:new" }
+    methods:  [GET, POST]
+
+empleado_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAdministratorBundle:Empleado:edit" }
+    methods:  [GET, POST]
+
+empleado_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAdministratorBundle:Empleado:delete" }

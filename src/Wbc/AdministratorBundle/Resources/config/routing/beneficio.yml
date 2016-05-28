@@ -1,0 +1,23 @@
+beneficio_index:
+    path:     /
+    defaults: { _controller: "WbcAdministratorBundle:Beneficio:index" }
+    methods:  GET
+
+beneficio_show:
+    path:     /{id}/show
+    defaults: { _controller: "WbcAdministratorBundle:Beneficio:show" }
+    methods:  GET
+
+beneficio_new:
+    path:     /new
+    defaults: { _controller: "WbcAdministratorBundle:Beneficio:new" }
+    methods:  [GET, POST]
+
+beneficio_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAdministratorBundle:Beneficio:edit" }
+    methods:  [GET, POST]
+
+beneficio_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAdministratorBundle:Beneficio:delete" }

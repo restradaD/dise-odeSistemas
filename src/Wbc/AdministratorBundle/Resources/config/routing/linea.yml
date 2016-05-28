@@ -1,0 +1,23 @@
+linea_index:
+    path:     /
+    defaults: { _controller: "WbcAdministratorBundle:Linea:index" }
+    methods:  GET
+
+linea_show:
+    path:     /{id}/show
+    defaults: { _controller: "WbcAdministratorBundle:Linea:show" }
+    methods:  GET
+
+linea_new:
+    path:     /new
+    defaults: { _controller: "WbcAdministratorBundle:Linea:new" }
+    methods:  [GET, POST]
+
+linea_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAdministratorBundle:Linea:edit" }
+    methods:  [GET, POST]
+
+linea_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAdministratorBundle:Linea:delete" }

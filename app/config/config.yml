@@ -40,8 +40,8 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         project:
-            name:      "Base"
-            tradename: "Base project by Rodmar Zavala"
+            name:      "Importaciones GT"
+            tradename: "Proyecto Final Diseño de Sistemas"
 
 # Doctrine Configuration
 doctrine:

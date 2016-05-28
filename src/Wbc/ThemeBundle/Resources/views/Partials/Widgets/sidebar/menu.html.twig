@@ -2,12 +2,60 @@
     <li {% if getMenuItem() == 'dashboard' %}class="active"{% endif %}>
         <!-- an example of nested submenu. basic bootstrap collapse component -->
         <a href="{{ path('wbc_administrator_homepage') }}" data-parent="#sidebar">
-                    <span class="icon">
-                        <i class="fa fa-desktop"></i>
-                    </span>
+            <span class="icon">
+                <i class="fa fa-desktop"></i>
+            </span>
             {% trans %}Dashboard{% endtrans %}
         </a>
 
+    </li>
+    <li {% if getMenuItem() == 'Producto' %}class="active"{% endif %}>
+        <a href="{{ path('producto_index') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Producto{% endtrans %}
+        </a>
+    </li>
+    <li {% if getMenuItem() == 'Linea' %}class="active"{% endif %}>
+        <a href="{{ path('linea_index') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Linea de producto{% endtrans %}
+        </a>
+    </li>
+    <li {% if getMenuItem() == 'Proveedor' %}class="active"{% endif %}>
+        <a href="{{ path('proveedor_index') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Proveedor{% endtrans %}
+        </a>
+    </li>
+    <li {% if getMenuItem() == 'Certificado' %}class="active"{% endif %}>
+        <a href="{{ path('certificado_index') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Certificado{% endtrans %}
+        </a>
+    </li>
+    <li {% if getMenuItem() == 'Beneficio' %}class="active"{% endif %}>
+        <a href="{{ path('beneficio_index') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Beneficio{% endtrans %}
+        </a>
+    </li>
+    <li {% if getMenuItem() == 'Empleado' %}class="active"{% endif %}>
+        <a href="{{ path('empleado_index') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Empleado{% endtrans %}
+        </a>
     </li>
     <li {% if getMenuItem() == 'user' %}class="active"{% endif %}>
         <a href="{{ path('user_index') }}">
@@ -20,9 +68,9 @@
     <li>
         <!-- an example of nested submenu. basic bootstrap collapse component -->
         <a class="collapsed" href="#sidebar-forms" data-toggle="collapse" data-parent="#sidebar">
-                    <span class="icon">
-                        <i class="glyphicon glyphicon-align-right"></i>
-                    </span>
+            <span class="icon">
+                <i class="glyphicon glyphicon-align-right"></i>
+            </span>
             {% trans %}Forms{% endtrans %}
             <i class="toggle fa fa-angle-down"></i>
         </a>
@@ -41,40 +89,40 @@
         </a>
     </li>
     {% if get('use_translations') %}
-    <li {% if getMenuItem() == 'I18NResource' %}class="active"{% endif %}>
-        <a href="{{ path('i18nresource_index') }}">
-            <span class="icon">
-                <i class="fa fa-language"></i>
-            </span>
-            {% trans %}Translatable{% endtrans %}
-        </a>
-    </li>
+        <li {% if getMenuItem() == 'I18NResource' %}class="active"{% endif %}>
+            <a href="{{ path('i18nresource_index') }}">
+                <span class="icon">
+                    <i class="fa fa-language"></i>
+                </span>
+                {% trans %}Translatable{% endtrans %}
+            </a>
+        </li>
     {% endif %}
 
     {% if is_granted('ROLE_ADMIN') %}
-    <li>
-        <a class="collapsed" href="#sidebar-security" data-toggle="collapse" data-parent="#sidebar">
-                    <span class="icon">
-                        <i class="fa fa-lock"></i>
-                    </span>
-            {% trans %}Security{% endtrans %}
-            <i class="toggle fa fa-angle-down"></i>
-        </a>
-        <ul id="sidebar-security" class="collapse">
-            <li><a href="{{ path('role_index') }}">{% trans %}Roles{% endtrans %}</a></li>
-            <li><a href="{{ path('permission_index') }}">{% trans %}Permissions{% endtrans %}</a></li>
-            <li><a href="{{ path('oauth_client_index') }}">{% trans %}My Apps{% endtrans %}</a></li>
-        </ul>
-    </li>
+        <li>
+            <a class="collapsed" href="#sidebar-security" data-toggle="collapse" data-parent="#sidebar">
+                <span class="icon">
+                    <i class="fa fa-lock"></i>
+                </span>
+                {% trans %}Security{% endtrans %}
+                <i class="toggle fa fa-angle-down"></i>
+            </a>
+            <ul id="sidebar-security" class="collapse">
+                <li><a href="{{ path('role_index') }}">{% trans %}Roles{% endtrans %}</a></li>
+                <li><a href="{{ path('permission_index') }}">{% trans %}Permissions{% endtrans %}</a></li>
+                <li><a href="{{ path('oauth_client_index') }}">{% trans %}My Apps{% endtrans %}</a></li>
+            </ul>
+        </li>
     {% endif %}
 
 </ul>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('ul.sidebar-nav').on('click', 'a:not([data-toggle])', function(){
+    $(document).ready(function () {
+        $('ul.sidebar-nav').on('click', 'a:not([data-toggle])', function () {
             var li = $(this).parent('li');
-            setTimeout(function(){
+            setTimeout(function () {
                 li.addClass('active');
             }, 500);
         });

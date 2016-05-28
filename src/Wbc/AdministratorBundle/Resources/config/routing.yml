@@ -37,3 +37,28 @@ cache_clear:
 go:
     path:     /go/{code}/
     defaults: { _controller: WbcAdministratorBundle:Default:go }
+    
+wbc_administrator_producto:
+        resource: "@WbcAdministratorBundle/Resources/config/routing/producto.yml"
+        prefix:   /producto
+        
+wbc_administrator_linea:
+        resource: "@WbcAdministratorBundle/Resources/config/routing/linea.yml"
+        prefix:   /linea
+
+wbc_administrator_proveedor:
+        resource: "@WbcAdministratorBundle/Resources/config/routing/proveedor.yml"
+        prefix:   /proveedor
+        
+wbc_administrator_certificado:
+        resource: "@WbcAdministratorBundle/Resources/config/routing/certificado.yml"
+        prefix:   /certificado
+        
+wbc_administrator_beneficio:
+        resource: "@WbcAdministratorBundle/Resources/config/routing/beneficio.yml"
+        prefix:   /beneficio
+
+wbc_administrator_empleado:
+        resource: "@WbcAdministratorBundle/Resources/config/routing/empleado.yml"
+        prefix:   /empleado
+

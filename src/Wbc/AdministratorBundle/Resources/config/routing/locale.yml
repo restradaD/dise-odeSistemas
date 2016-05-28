@@ -1,0 +1,23 @@
+locale_index:
+    path:     /
+    defaults: { _controller: "WbcAdministratorBundle:Locale:index" }
+    methods:  GET
+
+locale_show:
+    path:     /{id}/show
+    defaults: { _controller: "WbcAdministratorBundle:Locale:show" }
+    methods:  GET
+
+locale_new:
+    path:     /new
+    defaults: { _controller: "WbcAdministratorBundle:Locale:new" }
+    methods:  [GET, POST]
+
+locale_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAdministratorBundle:Locale:edit" }
+    methods:  [GET, POST]
+
+locale_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAdministratorBundle:Locale:delete" }

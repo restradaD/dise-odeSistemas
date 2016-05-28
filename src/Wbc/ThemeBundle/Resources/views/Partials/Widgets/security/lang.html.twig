@@ -1,0 +1,17 @@
+{% if get('use_translations') %}
+<style>
+    #lang-selector{ padding-top: 10px; }
+</style>
+
+<div id="lang-selector" class="btn-group pull-right">
+    <button title="" data-original-title="" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+        &nbsp; <img src="/flags/{{ locale.countrycode }}.gif" alt=""> &nbsp;
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <ul class="dropdown-menu">
+        {% for lang in langs %}
+        <li><a data-no-pjax title="{{ lang }}" href="{{ path('set_locale', { '_locale': lang.code }) }}"> <img src="/flags/{{ lang.countrycode }}.gif" /> &nbsp; {{ lang }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

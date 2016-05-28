@@ -1,0 +1,1 @@
+key("⌘+f, ctrl+f",function(){$("#search-box").focus();return false});

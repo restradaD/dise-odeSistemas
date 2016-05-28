@@ -1,0 +1,33 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<h1 class="page-title">{{ 'Profile' | trans }}</h1>
+<div class="row">
+    <div class="col-md-12">
+        <section class="widget">
+
+            <div class="widget-body">
+                {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit', 'role': 'form' } }) }}
+                    {{ form_errors(form) }}
+
+                    <fieldset>
+                        <legend>General</legend>
+
+                        {% for input in form.children %}
+                            {% if input.vars.name != '_token' %}
+                                <div class="form-group col-md-6">
+                                    {{ form_label(input) }}
+                                    {{ form_errors(input) }}
+                                    {{ form_widget(input, { 'attr': {'class' : 'form-control' } }) }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </fieldset>
+
+                    <div>
+                        <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </section>
+    </div>
+</div>

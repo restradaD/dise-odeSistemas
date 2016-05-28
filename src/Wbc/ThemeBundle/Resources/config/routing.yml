@@ -1,0 +1,11 @@
+#wbc_theme_homepage:
+#    path:     /
+#    defaults: { _controller: WbcThemeBundle:Default:index }
+
+set_locale:
+    path:     /locale/{_locale}/
+    defaults: { _controller: WbcThemeBundle:Default:locale }
+
+refresh_notifications:
+    path:     /refresh-notifications/
+    defaults: { _controller: WbcThemeBundle:Default:notifications }

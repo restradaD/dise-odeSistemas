@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="1e78fe06c45330d6b1da215b5d36cbac" resname="Locale list">
+        <source>Locale list</source>
+        <target>Listado de idiomas</target>
+      </trans-unit>
+      <trans-unit id="83b23f0f76f70409d6f3c3e8d1a58c97" resname="Locale edit">
+        <source>Locale edit</source>
+        <target>Editar idioma</target>
+      </trans-unit>
+      <trans-unit id="0db377921f4ce762c62526131097968f" resname="General">
+        <source>General</source>
+        <target>General</target>
+      </trans-unit>
+      <trans-unit id="b51000000ff730e7cacd10980186c1a4" resname="Select image">
+        <source>Select image</source>
+        <target>Seleccionar imagen</target>
+      </trans-unit>
+      <trans-unit id="f4ec5f57bd4d31b803312d873be40da9" resname="Change">
+        <source>Change</source>
+        <target>Cambiar</target>
+      </trans-unit>
+      <trans-unit id="1063e38cb53d94d386f21227fcd84717" resname="Remove">
+        <source>Remove</source>
+        <target>Eliminar</target>
+      </trans-unit>
+      <trans-unit id="575f5f86d2c7ea113c6710c1037c4465" resname="Saving...">
+        <source>Saving...</source>
+        <target>Guardando...</target>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354" resname="Save">
+        <source>Save</source>
+        <target>Guardar</target>
+      </trans-unit>
+      <trans-unit id="ea4788705e6873b424c65e91c2846b19" resname="Cancel">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+      </trans-unit>
+      <trans-unit id="f7f78b9dfe29752b9e04490253838264" resname="Create new">
+        <source>Create new</source>
+        <target>Crear nuevo</target>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987" resname="Name">
+        <source>Name</source>
+        <target>Nombre</target>
+      </trans-unit>
+      <trans-unit id="ca0dbad92a874b2f69b549293387925e" resname="Code">
+        <source>Code</source>
+        <target>Código</target>
+      </trans-unit>
+      <trans-unit id="2af4079184ba293f37acf53b060b0630" resname="Country_code">
+        <source>Country_code</source>
+        <target>Código de país</target>
+      </trans-unit>
+      <trans-unit id="06df33001c1d7187fdd81ea1f5b277aa" resname="Actions">
+        <source>Actions</source>
+        <target>Acciones</target>
+      </trans-unit>
+      <trans-unit id="7dce122004969d56ae2e0245cb754d35" resname="Edit">
+        <source>Edit</source>
+        <target>Editar</target>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18" resname="Delete">
+        <source>Delete</source>
+        <target>Eliminar</target>
+      </trans-unit>
+      <trans-unit id="b4e6101378d2a08d80df7e5da0625128" resname="Showing">
+        <source>Showing</source>
+        <target>Mostrando</target>
+      </trans-unit>
+      <trans-unit id="01b6e20344b68835c5ed1ddedf20d531" resname="to">
+        <source>to</source>
+        <target>al</target>
+      </trans-unit>
+      <trans-unit id="8bf8854bebe108183caeb845c7676ae4" resname="of">
+        <source>of</source>
+        <target>de</target>
+      </trans-unit>
+      <trans-unit id="5fce916b625108149ee3ea5f48d9b0d1" resname="entries">
+        <source>entries</source>
+        <target>registros</target>
+      </trans-unit>
+      <trans-unit id="bbd327b6b50427d7c7f9b06e35d4fc35" resname="Nothing found - sorry">
+        <source>Nothing found - sorry</source>
+        <target>Nada para mostrar</target>
+      </trans-unit>
+      <trans-unit id="92743a7c618d31ccb3ac92b8dca11e57" resname="No records available">
+        <source>No records available</source>
+        <target>No hay registros disponibles</target>
+      </trans-unit>
+      <trans-unit id="13dcbba37b585704c5fdcea4094900f5" resname="filtered from">
+        <source>filtered from</source>
+        <target>filtrando de</target>
+      </trans-unit>
+      <trans-unit id="d9d9bbf853c0fbf7edceac5a133fa18b" resname="total records">
+        <source>total records</source>
+        <target>total de registros</target>
+      </trans-unit>
+      <trans-unit id="21d104a54fc71a19a325c7305327f1d2" resname="Processing...">
+        <source>Processing...</source>
+        <target>Procesando...</target>
+      </trans-unit>
+      <trans-unit id="8524de963f07201e5c086830d370797f" resname="Loading...">
+        <source>Loading...</source>
+        <target>Cargando...</target>
+      </trans-unit>
+      <trans-unit id="24c29702dc9c63dedb98e92f3028e068" resname="Search:">
+        <source>Search:</source>
+        <target>Buscar:</target>
+      </trans-unit>
+      <trans-unit id="16cf1588a79b8f1d2db9489cffa5e924" resname="No matching records found">
+        <source>No matching records found</source>
+        <target>No hay registros que cumplan con el filtro</target>
+      </trans-unit>
+      <trans-unit id="7fb55ed0b7a30342ba6da306428cae04" resname="First">
+        <source>First</source>
+        <target>Primero</target>
+      </trans-unit>
+      <trans-unit id="d55b30607c2a9a2616347d6edb789f6b" resname="Last">
+        <source>Last</source>
+        <target>Último</target>
+      </trans-unit>
+      <trans-unit id="10ac3d04253ef7e1ddc73e6091c0cd55" resname="Next">
+        <source>Next</source>
+        <target>Siguiente</target>
+      </trans-unit>
+      <trans-unit id="dd1f775e443ff3b9a89270713580a51b" resname="Previous">
+        <source>Previous</source>
+        <target>Anterior</target>
+      </trans-unit>
+      <trans-unit id="8d9f3c33ad838ee60093fb55666571b5" resname="activate to sort column ascending">
+        <source>activate to sort column ascending</source>
+        <target>Ordenar ascendentemente</target>
+      </trans-unit>
+      <trans-unit id="bfc8ac898050e255addde4414aae1b8c" resname="activate to sort column descending">
+        <source>activate to sort column descending</source>
+        <target>Ordenar descendentemente</target>
+      </trans-unit>
+      <trans-unit id="e813c0f6a9f9250baef38a9c42576c6c" resname="Locale creation">
+        <source>Locale creation</source>
+        <target>Crear idioma</target>
+      </trans-unit>
+      <trans-unit id="997c785cce775d7c1014ffbd6e446d50" resname="General information">
+        <source>General information</source>
+        <target>Información general</target>
+      </trans-unit>
+      <trans-unit id="c112bb3542e98308d12d5ecb10a67abc" resname="Changes">
+        <source>Changes</source>
+        <target>Chambios</target>
+      </trans-unit>
+      <trans-unit id="8f9bfe9d1345237cb3b2b205864da075" resname="User">
+        <source>User</source>
+        <target>Usuario</target>
+      </trans-unit>
+      <trans-unit id="44749712dbec183e983dcd78a7736c41" resname="Date">
+        <source>Date</source>
+        <target>Fecha</target>
+      </trans-unit>
+      <trans-unit id="b0de30ca784cd7fc7ef5b05d2e87b745" resname="&lt;span class='label label-info'&gt;%field%&lt;/span&gt; from &lt;strong&gt;%from%&lt;/strong&gt; to &lt;strong&gt;%to%&lt;/strong&gt;">
+        <source>&lt;span class='label label-info'&gt;%field%&lt;/span&gt; from &lt;strong&gt;%from%&lt;/strong&gt; to &lt;strong&gt;%to%&lt;/strong&gt;</source>
+        <target><![CDATA[__<span class='label label-info'>%field%</span> De:p <strong>%from%</strong> A: <strong>%to%</strong>]]></target>
+      </trans-unit>
+      <trans-unit id="08608cdc8de753851ba3aa2ea1ebfd3a" resname="Settings list">
+        <source>Settings list</source>
+        <target>Perfiles de configuración</target>
+      </trans-unit>
+      <trans-unit id="f0d7ed108a7c509d8afac213de321d8c" resname="Settings edit">
+        <source>Settings edit</source>
+        <target>Editar configuración</target>
+      </trans-unit>
+      <trans-unit id="e6b391a8d2c4d45902a23a8b6585703d" resname="URL">
+        <source>URL</source>
+        <target>URL</target>
+      </trans-unit>
+      <trans-unit id="4d3d769b812b6faa6b76e1a8abaece2d" resname="Active">
+        <source>Active</source>
+        <target>Activo</target>
+      </trans-unit>
+      <trans-unit id="93cba07454f06a4a960172bbd6e2a435" resname="Yes">
+        <source>Yes</source>
+        <target>Sí</target>
+      </trans-unit>
+      <trans-unit id="bafd7322c6e97d25b6299b5d6fe8920b" resname="No">
+        <source>No</source>
+        <target>No</target>
+      </trans-unit>
+      <trans-unit id="ffdfbddf3505393018dd4b5b8f59ee04" resname="Settings creation">
+        <source>Settings creation</source>
+        <target>Crear nuevo perfil</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

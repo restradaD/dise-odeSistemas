@@ -1,0 +1,48 @@
+# FOSOAuthServerBundle
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+
+wbc_auth:
+    resource: "@WbcAuthBundle/Resources/config/routing.yml"
+    prefix:   /administrator
+
+wbc_api:
+    resource: "@WbcAPIBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+lexik_translation_edition:
+    resource: "@LexikTranslationBundle/Resources/config/routing.yml"
+    prefix:   /administrator/translate
+
+wbc_services:
+    resource: "@WbcServicesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+wbc_theme:
+    resource: "@WbcThemeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+wbc_frontend:
+    resource: "@WbcFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+wbc_administrator:
+    resource: "@WbcAdministratorBundle/Resources/config/routing.yml"
+    prefix:   /administrator
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

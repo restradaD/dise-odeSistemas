@@ -1,0 +1,32 @@
+
+    /**
+{% block phpdoc_method_header %}
+     * Deletes a {{ entity }} entity.
+{% endblock phpdoc_method_header %}
+     *
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/{id}", name="{{ route_name_prefix }}_delete")
+     * @Method("DELETE")
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+     */
+{% block method_definition %}
+    public function deleteAction(Request $request, {{ entity_class }} ${{ entity_singularized }})
+{% endblock method_definition %}
+    {
+{% block method_body %}
+        $em = $this->getDoctrine()->getManager();
+        $em->remove(${{ entity_singularized }});
+        $em->flush();
+
+        $this->get('Services')->setFlash('danger', $this->get('translator')->trans('{{ entity }} deleted!'));
+{% endblock method_body %}
+
+{% block method_return %}
+        return $this->redirectToRoute('{{ route_name_prefix }}_index');
+{% endblock method_return %}
+    }
+
+{% block form %}
+{% endblock form %}

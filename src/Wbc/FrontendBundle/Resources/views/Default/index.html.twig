@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    Hello World!
+    <br>
+    Today: {{ 'now' | date('Y-m-d H:i:s') }}
+    <br>
+    {{ i18nResource('bienvenidos') | raw }}
+    URL: {{ 'http://rodmarzavala.com/' | shortURL }}
+{% endblock %}

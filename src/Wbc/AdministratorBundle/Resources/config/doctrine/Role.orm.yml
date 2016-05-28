@@ -1,0 +1,36 @@
+Wbc\AdministratorBundle\Entity\Role:
+  type: entity
+  table: base_role
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 255
+      nullable: true
+    description:
+      type: text
+      nullable: true
+    created_by:
+      type: integer
+      nullable: true
+    updated_by:
+      type: integer
+      nullable: true
+    created_at:
+      type: datetime
+      nullable: true
+    updated_at:
+      type: datetime
+      nullable: true
+  manyToMany:
+    permission:
+      targetEntity: Wbc\AdministratorBundle\Entity\Permission
+      mappedBy: role
+  oneToMany:
+    user:
+      targetEntity: Wbc\AdministratorBundle\Entity\User
+      mappedBy: role

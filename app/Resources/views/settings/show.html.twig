@@ -1,0 +1,149 @@
+<h4>{{ 'General information' | trans }}</h4>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th width="100px">Id</th>
+            <td width="100px">{{ setting.id }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Name</th>
+            <td width="100px">{{ setting.name }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Active</th>
+            <td width="100px">{% if setting.active %} {{ "Yes" | trans }} {% else %} {{ "No" | trans }} {% endif %}</td>
+        </tr>
+        <tr>
+            <th width="100px">Url</th>
+            <td width="100px">{{ setting.url }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Description</th>
+            <td width="100px">{{ setting.description }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Html_robots</th>
+            <td width="100px">{{ setting.htmlrobots }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Og_title</th>
+            <td width="100px">{{ setting.ogtitle }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Og_description</th>
+            <td width="100px">{{ setting.ogdescription }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Og_image_url</th>
+            <td width="100px">{{ setting.ogimageurl }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Og_url</th>
+            <td width="100px">{{ setting.ogurl }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Email</th>
+            <td width="100px">{{ setting.email }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Facebook_url</th>
+            <td width="100px">{{ setting.facebookurl }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Twitter_url</th>
+            <td width="100px">{{ setting.twitterurl }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Youtube_url</th>
+            <td width="100px">{{ setting.youtubeurl }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Instagram_url</th>
+            <td width="100px">{{ setting.instagramurl }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Facebook_app_id</th>
+            <td width="100px">{{ setting.facebookappid }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Analytics_script</th>
+            <td width="100px">{{ setting.analyticsscript }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Copyright</th>
+            <td width="100px">{{ setting.copyright }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Is_production</th>
+            <td width="100px">{% if setting.isproduction %} {{ "Yes" | trans }} {% else %} {{ "No" | trans }} {% endif %}</td>
+        </tr>
+        <tr>
+            <th width="100px">Main_api</th>
+            <td width="100px">{{ setting.mainapi }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Use_twilio</th>
+            <td width="100px">{% if setting.usetwilio %} {{ "Yes" | trans }} {% else %} {{ "No" | trans }} {% endif %}</td>
+        </tr>
+        <tr>
+            <th width="100px">Use_twilio_voice</th>
+            <td width="100px">{% if setting.usetwiliovoice %} {{ "Yes" | trans }} {% else %} {{ "No" | trans }} {% endif %}</td>
+        </tr>
+        <tr>
+            <th width="100px">Twilio_number</th>
+            <td width="100px">{{ setting.twilionumber }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Twilio_sid</th>
+            <td width="100px">{{ setting.twiliosid }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Twilio_token</th>
+            <td width="100px">{{ setting.twiliotoken }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Use_email</th>
+            <td width="100px">{% if setting.useemail %} {{ "Yes" | trans }} {% else %} {{ "No" | trans }} {% endif %}</td>
+        </tr>
+        <tr>
+            <th width="100px">Admin_email</th>
+            <td width="100px">{{ setting.adminemail }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Faye_server_url</th>
+            <td width="100px">{{ setting.fayeserverurl }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>{{ 'Changes' | trans }}</h4>
+<table class="table table-bordered">
+    <tbody>
+        {% for log in changes %}
+            <tr>
+                <th width="100px">{{ 'User' | trans }}</th>
+                <td>{{ log.user }}</td>
+                <th width="100px">{{ 'Date' | trans }}</th>
+                <td><span title="{{ log.createdat | date('Y-m-d H:i') }}">{{ log.createdat | ago }}</span></td>
+            </tr>
+            {% for innerChange in log.logChanges %}
+                <tr>
+                    {% if innerChange.old != '' or innerChange.new != '' %}
+                    <td colspan="4">
+                        <span class="">
+                            {% trans with {'%field%': innerChange.name, '%from%': innerChange.old | default('NOTHING') , '%to%': innerChange.new | default('NOTHING') } %} <span class='label label-info'>%field%</span> from <strong>%from%</strong> to <strong>%to%</strong> {% endtrans %}
+                        </span>
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<script>
+    $('#infoModalLabel').html('Settings');
+
+</script>

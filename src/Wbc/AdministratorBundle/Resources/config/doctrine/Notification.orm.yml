@@ -1,0 +1,64 @@
+Wbc\AdministratorBundle\Entity\Notification:
+  type: entity
+  table: base_notification
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    title:
+      type: string
+      length: 255
+      nullable: false
+    message:
+      type: text
+      nullable: true
+    type:
+      type: string
+      length: 21
+      nullable: true
+    action:
+      type: text
+      nullable: true
+    seen:
+      type: boolean
+      nullable: true
+    path:
+      type: string
+      length: 255
+      nullable: true
+    params:
+      type: string
+      length: 255
+      nullable: true
+    target:
+      type: string
+      length: 50
+      nullable: true
+    checked:
+      type: boolean
+      nullable: true
+    created_at:
+      type: datetime
+      nullable: true
+    created_by:
+      type: integer
+      nullable: true
+    updated_at:
+      type: datetime
+      nullable: true
+    updated_by:
+      type: integer
+      nullable: true
+  manyToOne:
+    from:
+      targetEntity: Wbc\AdministratorBundle\Entity\User
+      joinColumns:
+        from_user:
+          referencedColumnName: id
+    to:
+      targetEntity: Wbc\AdministratorBundle\Entity\User
+      joinColumns:
+        to_user:
+          referencedColumnName: id

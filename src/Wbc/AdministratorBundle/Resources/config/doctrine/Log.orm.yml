@@ -1,0 +1,48 @@
+Wbc\AdministratorBundle\Entity\Log:
+  type: entity
+  table: base_log
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    action:
+      type: string
+      length: 100
+      nullable: true
+    text:
+      type: text
+      nullable: true
+    entity:
+      type: string
+      length: 200
+      nullable: true
+    entity_id:
+      type: integer
+      nullable: true
+    created_at:
+      type: datetime
+      nullable: true
+    updated_at:
+      type: datetime
+      nullable: true
+    created_by:
+      type: integer
+      nullable: true
+    updated_by:
+      type: integer
+      nullable: true
+  lifecycleCallbacks:
+    prePersist: [setCreatedAtValue, setCreatedByValue]
+    preUpdate: [setUpdatedAtValue, setUpdatedByValue]
+  manyToOne:
+    user:
+      targetEntity: Wbc\AdministratorBundle\Entity\User
+      joinColumns:
+        user_id:
+          referencedColumnName: id
+  oneToMany:
+    log_changes:
+      targetEntity: Wbc\AdministratorBundle\Entity\LogChanges
+      mappedBy: log

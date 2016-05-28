@@ -1,0 +1,3 @@
+wbc_auth_client:
+    resource: "@WbcAuthBundle/Resources/config/routing/oauth_client.yml"
+    prefix:   /client

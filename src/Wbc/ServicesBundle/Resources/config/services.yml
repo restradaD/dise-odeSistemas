@@ -1,0 +1,14 @@
+services:
+    Services:
+        class:   Wbc\ServicesBundle\Services\Services
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+            container: "@service_container"
+    wbc.twig.extension:
+        class: Wbc\ServicesBundle\Twig\WbcExtension
+        public: true
+        tags:
+            - { name: twig.extension }
+        arguments:
+            em: "@doctrine.orm.entity_manager"
+            container: "@service_container"

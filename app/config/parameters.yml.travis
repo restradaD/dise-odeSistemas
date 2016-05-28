@@ -1,0 +1,6 @@
+parameters:
+    database_user: travis
+    database_name: travis
+    database_password: ~
+    database_host: 127.0.0.1
+    # Other parameters

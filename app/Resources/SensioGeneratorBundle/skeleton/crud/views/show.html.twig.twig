@@ -1,0 +1,72 @@
+<h4>{{ "{{ 'General information' | trans }}" }}</h4>
+
+<table class="table table-bordered">
+    <tbody>
+    {%- for field, metadata in fields %}
+
+        <tr>
+            <th width="100px">{{ field|capitalize }}</th>
+
+        {%- if metadata.type in ['datetime'] %}
+
+            <td width="100px">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+        {%- elseif metadata.type in ['date'] %}
+
+            <td width="100px">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d\') }}{% endif %}' }}</td>
+
+        {%- elseif metadata.type in ['time'] %}
+
+            <td width="100px">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'H:i:s\') }}{% endif %}' }}</td>
+
+        {%- elseif metadata.type in ['array'] %}
+
+            <td width="100px">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|join(\', \') }}{% endif %}' }}</td>
+
+        {%- elseif metadata.type in ['boolean'] %}
+
+            <td width="100px">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %} {{ "Yes" | trans }} {% else %} {{ "No" | trans }} {% endif %}' }}</td>
+
+        {%- else %}
+
+            <td width="100px">{{ '{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+        {%- endif %}
+
+        </tr>
+
+    {%- endfor %}
+
+    </tbody>
+</table>
+
+<h4>{{ "{{ 'Changes' | trans }}" }}</h4>
+<table class="table table-bordered">
+    <tbody>
+        {{ "{% for log in changes %}" }}
+            <tr>
+                <th width="100px">{{ "{{ 'User' | trans }}" }}</th>
+                <td>{{ "{{ log.user }}" }}</td>
+                <th width="100px">{{ "{{ 'Date' | trans }}" }}</th>
+                <td><span title="{{ "{{ log.createdat | date('Y-m-d H:i') }}" }}">{{ "{{ log.createdat | ago }}" }}</span></td>
+            </tr>
+            {{ "{% for innerChange in log.logChanges %}" }}
+                <tr>
+                    {{ "{% if innerChange.old != '' or innerChange.new != '' %}" }}
+                    <td colspan="4">
+                        <span class="">
+                            {{ "{% trans with {'%field%': innerChange.name, '%from%': innerChange.old | default('NOTHING') , '%to%': innerChange.new | default('NOTHING') } %} <span class='label label-info'>%field%</span> from <strong>%from%</strong> to <strong>%to%</strong> {% endtrans %}" }}
+                        </span>
+                    </td>
+                    {{ "{% endif %}" }}
+                </tr>
+            {{ "{% endfor %}" }}
+        {{ "{% endfor %}" }}
+    </tbody>
+</table>
+
+
+<script>
+    $('#infoModalLabel').html('{{ entity }}');
+
+</script>

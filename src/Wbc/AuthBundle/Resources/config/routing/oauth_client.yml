@@ -1,0 +1,18 @@
+oauth_client_index:
+    path:     /
+    defaults: { _controller: "WbcAuthBundle:OAuthClient:index" }
+    methods:  GET
+
+oauth_client_new:
+    path:     /new
+    defaults: { _controller: "WbcAuthBundle:OAuthClient:new" }
+    methods:  [GET, POST]
+
+oauth_client_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAuthBundle:OAuthClient:edit" }
+    methods:  [GET, POST]
+
+oauth_client_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAuthBundle:OAuthClient:delete" }

@@ -1,0 +1,39 @@
+wbc_administrator_permission:
+    resource: "@WbcAdministratorBundle/Resources/config/routing/permission.yml"
+    prefix:   /permission
+
+wbc_administrator_role:
+    resource: "@WbcAdministratorBundle/Resources/config/routing/role.yml"
+    prefix:   /role
+
+wbc_administrator_i18nresource:
+    resource: "@WbcAdministratorBundle/Resources/config/routing/i18nresource.yml"
+    prefix:   /i18nresource
+
+wbc_administrator_settings:
+    resource: "@WbcAdministratorBundle/Resources/config/routing/settings.yml"
+    prefix:   /settings
+
+wbc_administrator_user:
+    resource: "@WbcAdministratorBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+wbc_administrator_locale:
+    resource: "@WbcAdministratorBundle/Resources/config/routing/locale.yml"
+    prefix:   /locale
+
+wbc_administrator_homepage:
+    path:     /
+    defaults: { _controller: WbcAdministratorBundle:Default:index }
+
+wbc_search_page:
+    path:     /search/
+    defaults: { _controller: WbcAdministratorBundle:Default:search }
+
+cache_clear:
+    path:     /cache/clear/
+    defaults: { _controller: WbcAdministratorBundle:Default:cacheClear }
+
+go:
+    path:     /go/{code}/
+    defaults: { _controller: WbcAdministratorBundle:Default:go }

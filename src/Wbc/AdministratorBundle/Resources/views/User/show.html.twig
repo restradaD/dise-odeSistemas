@@ -1,0 +1,66 @@
+<h4>{{ "General information" }}</h4>
+<table class="table table-bordered">
+    <tbody>
+        <tr width="100px">
+            <th>{{ "First_name" | trans }}</th>
+            <td>{{ user.firstname }}</td>
+        </tr>
+        <tr>
+            <th>{{ "Last_name" | trans }}</th>
+            <td>{{ user.lastname }}</td>
+        </tr>
+        <tr>
+            <th>{{ "Email" | trans }}</th>
+            <td>
+                <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+            </td>
+        </tr>
+        <tr>
+            <th>{{ "Locale" | trans }}</th>
+            <td>{{ user.locale }}</td>
+        </tr>
+        <tr>
+            <th>{{ "Last Login" | trans }}</th>
+            <td>{{ user.lastLogin | ago }}</td>
+        </tr>
+        <tr>
+            <th>{{ "Enabled" | trans }}</th>
+            <td>{{ user.enabled ? 'Yes' | trans : 'No' | trans }}</td>
+        </tr>
+        <tr>
+            <th>{{ "Roles" | trans }}</th>
+            <td>{{ user.roles | list }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% if showChanges %}
+<h4>{{ "Changes" }}</h4>
+<table class="table table-bordered">
+    <tbody>
+        {% for log in changes %}
+        <tr>
+            <th width="100px">{{ "User" | trans }}</th>
+            <td>{{ log.user }}</td>
+            <th width="100px">{{ "Date" | trans }}</th>
+            <td><span title="{{ log.createdat | date('Y-m-d H:i') }}">{{ log.createdat | ago }}</span></td>
+        </tr>
+        {% for innerChange in log.logChanges %}
+        <tr>
+            {% if innerChange.old != '' or innerChange.new != '' %}
+            <td colspan="4">
+                <span class="">
+                    {% trans with {'%field%': innerChange.name, '%from%': innerChange.old | default('NOTHING') , '%to%': innerChange.new | default('NOTHING') } %} <span class='label label-info'>%field%</span> from <strong>%from%</strong> to <strong>%to%</strong> {% endtrans %}
+                </span>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+<script>
+    $('#infoModalLabel').html('{{ user }}');
+</script>

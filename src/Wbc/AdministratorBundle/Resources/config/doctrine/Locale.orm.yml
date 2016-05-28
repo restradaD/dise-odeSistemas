@@ -1,0 +1,28 @@
+Wbc\AdministratorBundle\Entity\Locale:
+  type: entity
+  table: base_locale
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 100
+      nullable: true
+    code:
+      type: string
+      length: 11
+      nullable: true
+    country_code:
+      type: string
+      length: 11
+      nullable: true
+  oneToMany:
+    user:
+      targetEntity: Wbc\AdministratorBundle\Entity\User
+      mappedBy: locale
+    i18n_resource:
+      targetEntity: Wbc\AdministratorBundle\Entity\I18NResource
+      mappedBy: locale

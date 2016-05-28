@@ -1,0 +1,118 @@
+{% extends 'WbcThemeBundle::layout.html.twig' %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class=""><a href="{{ path('user_index') }}">{{ 'Users' | trans }}</a></li>
+    <li class="active">{{ 'New user' | trans }}</li>
+{% endblock %}
+
+{% block title %}
+    {{ 'User creation' | trans }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h1 class="page-title">{{ 'User creation' | trans }}</h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <section class="widget">
+
+                <div class="widget-body">
+                    {{ form_start(form, { 'attr': { 'role': 'form' } }) }}
+                    {{ form_errors(form) }}
+
+                    <fieldset>
+                        <legend>General</legend>
+
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.first_name) }}
+                            {{ form_errors(form.first_name) }}
+                            {{ form_widget(form.first_name, { 'attr': {'class' : 'form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.last_name) }}
+                            {{ form_errors(form.last_name) }}
+                            {{ form_widget(form.last_name, { 'attr': {'class' : 'form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.locale) }}
+                            {{ form_errors(form.locale) }}
+                            {{ form_widget(form.locale, { 'attr': {'class' : 'select2 form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.username) }}
+                            {{ form_errors(form.username) }}
+                            {{ form_widget(form.username, { 'attr': {'class' : 'form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email, { 'attr': {'class' : 'form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.password) }}
+                            {{ form_errors(form.password) }}
+                            {{ form_widget(form.password, { 'attr': {'class' : 'form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.greeting) }}
+                            {{ form_errors(form.greeting) }}
+                            {{ form_widget(form.greeting, { 'attr': {'class' : 'select2 form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.timezone) }}
+                            {{ form_errors(form.timezone) }}
+                            {{ form_widget(form.timezone, { 'attr': {'class' : 'select2 form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(form.role) }}
+                            {{ form_errors(form.role) }}
+                            {{ form_widget(form.role, { 'attr': {'class' : 'select2 form-control' } }) }}
+                        </div>
+                        <div class="form-group col-md-2">
+                            {{ form_label(form.enabled) }}
+                            {{ form_errors(form.enabled) }}
+                            <br>
+                            {{ form_widget(form.enabled, { 'attr': {'class' : '' } }) }}
+                        </div>
+                        {#
+                        <div class="form-group col-md-2">
+                            {{ form_label(form.expired) }}
+                            {{ form_errors(form.expired) }}
+                            <br>
+                            {{ form_widget(form.expired, { 'attr': {'class' : '' } }) }}
+                        </div>
+                        <div class="form-group col-md-2">
+                            {{ form_label(form.locked) }}
+                            {{ form_errors(form.locked) }}
+                            <br>
+                            {{ form_widget(form.locked, { 'attr': {'class' : '' } }) }}
+                        </div>
+                        #}
+                    </fieldset>
+
+                    <div class="hide">
+                        {{ form_rest(form) }}
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="submit" class="btn btn-primary btn-rounded pull-right btn-submit" style="margin-left: 5px;" data-gerund="{{ 'Saving...' | trans }}" value="{{ 'Save' | trans }}" />
+                        <a href="{{ path('user_index') }}" class="btn btn-default btn-rounded pull-right">{{ 'Cancel' | trans }}</a>
+                        <div class="clearfix"></div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </section>
+        </div>
+    </div>
+
+    {% javascripts output='js/forms.js' filter="?jsqueeze"
+    'bundles/wbctheme/js/form-elements.js'%}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+
+{% block extrascripts %}
+{% endblock %}

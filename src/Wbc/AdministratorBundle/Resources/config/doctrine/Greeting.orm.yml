@@ -1,0 +1,25 @@
+Wbc\AdministratorBundle\Entity\Greeting:
+  type: entity
+  table: base_greeting
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 21
+      nullable: true
+    name_es:
+      type: string
+      length: 21
+      nullable: true
+    name_en:
+      type: string
+      length: 21
+      nullable: true
+  oneToMany:
+    user:
+      targetEntity: Wbc\AdministratorBundle\Entity\User
+      mappedBy: locale

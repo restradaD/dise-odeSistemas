@@ -1,0 +1,15 @@
+{% extends 'WbcThemeBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ 'My profile' | trans }}
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">{{ 'My profile' | trans }}</li>
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+{% endblock  %}

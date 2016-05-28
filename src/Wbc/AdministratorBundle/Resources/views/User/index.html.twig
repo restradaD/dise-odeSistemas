@@ -1,0 +1,122 @@
+{% extends 'WbcThemeBundle::layout.html.twig' %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">{{ 'Users' | trans }}</li>
+{% endblock %}
+
+{% block title %}
+    {{ 'User list' | trans }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h1 class="page-title pull-left">{{ 'User list' | trans }}</h1>
+
+    <div class="pull-right">
+        <a data-parent="#content" class="btn btn-primary btn-lg mb-xs" href="{{ path('user_new') }}">{{ 'Create a new' | trans }}</a>
+    </div>
+
+    <div class="clearfix"></div>
+    <br>
+
+    <section class="widget">
+        <header>
+            <div class="widget-controls">
+                <a data-widgster="expand" title="Expand" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                <a data-widgster="collapse" title="Collapse" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+            </div>
+        </header>
+        <div class="widget-body">
+            <div class="mt">
+                <table id="datatable-table" class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>{{ 'Name' | trans }}</th>
+                        <th class="hidden-xs no-sort">{{ 'Image' | trans }}</th>
+                        <th class="hidden-xs">{{ 'Email' | trans }}</th>
+                        <th>{{ 'Active' | trans }}</th>
+                        <th class="hidden-xs">{{ 'Last Login' | trans }}</th>
+                        <th width="120" class="no-sort">{{ 'Actions' | trans }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>
+                            <span class="fw-semi-bold">
+                                <a href="{{ path('user_show', { 'id': user.id }) }}" data-remote="false" class="modal-info" data-toggle="modal" data-target="#infoModal">{{ user }}</a>
+                            </span>
+                        </td>
+                        <td class="hidden-xs no-sort"><img src="http://dummyimage.com/40x40/242424/ffffff&text={{ user.initials }}" alt="{{ user }}"> </td>
+                        <td class="hidden-xs">{{ user.email }}</td>
+                        <td>{{ user.enabled ? 'YES' | trans : 'NO' | trans }}</td>
+                        <td class="hidden-xs">{{ user.lastlogin ? user.lastlogin | date('Y-m-d H:i') | ago : 'Never' | trans }}</td>
+                        <td>
+                            <a data-parent="#content" data-toggle="tooltip" data-placement="top" title="{{ 'Edit' | trans }}" data-original-title="{{ 'Edit' | trans }}" class="btn btn-default mb-xs" role="button" href="{{ path('user_edit', { 'id': user.id }) }}">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            &nbsp;
+                            <a data-parent="#content" data-toggle="tooltip" data-placement="top" title="{{ 'Delete' | trans }}" data-original-title="{{ 'Delete' | trans }}" class="btn btn-danger mb-xs btn-delete" role="button" href="{{ path('user_delete', { 'id': user.id }) }}">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var unsortableColumns = [];
+            $('#datatable-table').find('thead th').each(function(){
+                if ($(this).hasClass( 'no-sort')){
+                    unsortableColumns.push({"bSortable": false});
+                } else {
+                    unsortableColumns.push(null);
+                }
+            });
+
+            $("#datatable-table").dataTable({
+                "sDom": "<'row'<'col-md-6 hidden-xs'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_",
+                    "sInfo": "{{ 'Showing' | trans }} <strong>_START_ {{ 'to' | trans }} _END_</strong> {{ 'of' | trans }} _TOTAL_ {{ 'entries' | trans }}",
+                    "zeroRecords": "{{ 'Nothing found - sorry' | trans }}",
+                    "infoEmpty": "{{ 'No records available' | trans }}",
+                    "sInfoEmpty": "{{ "{{ 'Showing' | trans }}" }} <strong>0 {{ "{{ 'to' | trans }}" }} 0 {{ "{{ 'of' | trans }}" }} 0</strong> {{ "{{ 'entries' | trans }}" }}",
+                    "infoFiltered": "({{ 'filtered from' | trans }} _MAX_ {{ 'total records' | trans }})",
+                    "sProcessing":     "{{ 'Processing...' | trans }}",
+                    "sLoadingRecords": "{{ 'Loading...' | trans }}",
+                    "sProcessing":     "{{ 'Processing...' | trans }}",
+                    "sSearch":         "{{ 'Search:' | trans }}",
+                    "sZeroRecords":    "{{ 'No matching records found' | trans }}",
+                    "oPaginate": {
+                        "sFirst":    "{{ 'First' | trans }}",
+                        "sLast":     "{{ 'Last' | trans }}",
+                        "sNext":     "{{ 'Next' | trans }}",
+                        "sPrevious": "{{ 'Previous' | trans }}"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": {{ 'activate to sort column ascending' | trans }}",
+                        "sSortDescending": ": {{ 'activate to sort column descending' | trans }}"
+                    }
+                },
+                "oClasses": {
+                    "sFilter": "pull-right",
+                    "sFilterInput": "form-control input-rounded ml-sm"
+                },
+                "aoColumns": unsortableColumns,
+                "stateSave": true
+            });
+
+            $(".dataTables_length select").selectpicker({
+                width: 'auto'
+            });
+        });
+    </script>
+{% endblock %}

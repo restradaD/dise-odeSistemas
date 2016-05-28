@@ -1,0 +1,6 @@
+.form-group ul.error {
+    color: #dd5826;
+    list-style: outside none none;
+    font-size: 12px;
+    margin-left: -39px;
+}

@@ -1,0 +1,13 @@
+<a href="#" class="dropdown-toggle {{ class | default('') }}" {% if id is defined %} id="{{ id }}" {% endif %} data-toggle="dropdown">
+    <span class="thumb-sm avatar pull-right">
+        <img class="img-circle" src="http://dummyimage.com/300x300/242424/ffffff&text={{ app.user.initials }}" alt="{{ app.user }}" title="{{ app.user }}">
+    </span>
+    <!-- .circle is a pretty cool way to add a bit of beauty to raw data.
+         should be used with bg-* and text-* classes for colors -->
+    <span class="circle bg-warning fw-bold text-gray-dark count-notifications">
+
+    </span>
+    &nbsp;
+    {{ app.user.firstname }} <strong>{{ app.user.lastname }}</strong>
+    <b class="caret"></b>
+</a>

@@ -1,0 +1,3 @@
+#wbc_services_homepage:
+#    path:     /
+#    defaults: { _controller: WbcServicesBundle:Default:index }

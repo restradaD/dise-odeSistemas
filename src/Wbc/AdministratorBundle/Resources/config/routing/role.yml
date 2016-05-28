@@ -1,0 +1,23 @@
+role_index:
+    path:     /
+    defaults: { _controller: "WbcAdministratorBundle:Role:index" }
+    methods:  GET
+
+role_show:
+    path:     /{id}/show
+    defaults: { _controller: "WbcAdministratorBundle:Role:show" }
+    methods:  GET
+
+role_new:
+    path:     /new
+    defaults: { _controller: "WbcAdministratorBundle:Role:new" }
+    methods:  [GET, POST]
+
+role_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAdministratorBundle:Role:edit" }
+    methods:  [GET, POST]
+
+role_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAdministratorBundle:Role:delete" }

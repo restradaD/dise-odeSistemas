@@ -1,0 +1,109 @@
+Wbc\AdministratorBundle\Entity\Settings:
+  type: entity
+  table: base_settings
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 255
+      nullable: true
+    active:
+      type: boolean
+      nullable: true
+    url:
+      type: string
+      length: 255
+      nullable: true
+    description:
+      type: text
+      nullable: true
+    html_robots:
+      type: string
+      length: 255
+      nullable: true
+    og_title:
+      type: string
+      length: 255
+      nullable: true
+    og_description:
+      type: text
+      nullable: true
+    og_image_url:
+      type: text
+      nullable: true
+    og_url:
+      type: text
+      nullable: true
+    email:
+      type: string
+      length: 255
+      nullable: true
+    facebook_url:
+      type: string
+      length: 255
+      nullable: true
+    twitter_url:
+      type: string
+      length: 255
+      nullable: true
+    youtube_url:
+      type: string
+      length: 255
+      nullable: true
+    instagram_url:
+      type: string
+      length: 255
+      nullable: true
+    facebook_app_id:
+      type: string
+      length: 255
+      nullable: true
+    analytics_script:
+      type: text
+      nullable: true
+    copyright:
+      type: string
+      length: 255
+      nullable: true
+    is_production:
+      type: boolean
+      nullable: true
+    main_api:
+      type: string
+      length: 255
+      nullable: true
+    use_twilio:
+      type: boolean
+      nullable: true
+    use_twilio_voice:
+      type: boolean
+      nullable: true
+    twilio_number:
+      type: string
+      length: 200
+      nullable: true
+    twilio_sid:
+      type: string
+      length: 200
+      nullable: true
+    twilio_token:
+      type: text
+      nullable: true
+    use_email:
+      type: boolean
+      nullable: true
+    admin_email:
+      type: string
+      length: 200
+      nullable: true
+    faye_server_url:
+      type: string
+      length: 200
+      nullable: true
+    use_translations:
+      type: boolean
+      nullable: true

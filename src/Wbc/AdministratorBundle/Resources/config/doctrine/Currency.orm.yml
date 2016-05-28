@@ -1,0 +1,29 @@
+Wbc\AdministratorBundle\Entity\Currency:
+  type: entity
+  table: base_currency
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    code:
+      type: string
+      length: 3
+      nullable: true
+    rate:
+      type: decimal
+      scale: 4
+      nullable: true
+    created_by:
+      type: integer
+      nullable: true
+    updated_by:
+      type: integer
+      nullable: true
+    created_at:
+      type: datetime
+      nullable: true
+    updated_at:
+      type: datetime
+      nullable: true

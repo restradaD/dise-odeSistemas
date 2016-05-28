@@ -1,0 +1,23 @@
+permission_index:
+    path:     /
+    defaults: { _controller: "WbcAdministratorBundle:Permission:index" }
+    methods:  GET
+
+permission_show:
+    path:     /{id}/show
+    defaults: { _controller: "WbcAdministratorBundle:Permission:show" }
+    methods:  GET
+
+permission_new:
+    path:     /new
+    defaults: { _controller: "WbcAdministratorBundle:Permission:new" }
+    methods:  [GET, POST]
+
+permission_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAdministratorBundle:Permission:edit" }
+    methods:  [GET, POST]
+
+permission_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAdministratorBundle:Permission:delete" }

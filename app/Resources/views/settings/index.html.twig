@@ -1,0 +1,75 @@
+{% extends 'WbcThemeBundle::layout.html.twig' %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">{{ 'Settings list' | trans }}</li>
+{% endblock %}
+
+{% block title %}
+    {{ 'Settings list' | trans }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h1 class="page-title pull-left">{{ 'Settings list' | trans }}</h1>
+
+    <div class="pull-right">
+        {% if get('use_translations') %}
+        <a data-parent="#content" class="btn btn-default btn-lg mb-xs" href="{{ path('locale_index') }}"> <i class="fa fa-language"></i> &nbsp; {{ 'Locale list' | trans }}</a>
+        {% endif %}
+        <a data-parent="#content" class="btn btn-primary btn-lg mb-xs" href="{{ path('settings_new') }}">{{ 'Create new' | trans }}</a>
+    </div>
+
+    <div class="clearfix"></div>
+    <br>
+
+    <section class="widget">
+        <header>
+            <div class="widget-controls">
+                <a data-widgster="expand" title="Expand" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                <a data-widgster="collapse" title="Collapse" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+            </div>
+        </header>
+        <div class="widget-body">
+            <div class="mt">
+                <table id="datatable-table" class="table table-striped table-hover">
+                    <thead>
+                    <tr>                                                                                                                        
+                        <th class="no-sort">{{ 'Name' | trans }}</th>
+                        <th class="">{{ 'URL' | trans }}</th>
+                        <th class="hidden-xs">{{ 'Active' | trans }}</th>
+                        <th width="120" class="no-sort">{{ 'Actions' | trans }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for setting in settings %}
+                        <tr>
+                            <td class="no-sort">
+                                <span class="fw-semi-bold">
+                                    <a href="{{ path('settings_show', { 'id': setting.id }) }}" data-remote="false" class="modal-info" data-toggle="modal" data-target="#infoModal">{{ setting.name }}</a>
+                                </span>
+                            </td>
+                            <td class="">
+                                {{ setting.url }}
+                            </td>
+                            <td class="hidden-xs">{% if setting.active %} {{ "Yes" | trans }} {% else %} {{ "No" | trans }} {% endif %}</td>
+                            <td class="no-sort">
+                                <a data-parent="#content" data-toggle="tooltip" data-placement="top" title="{{ 'Edit' | trans }}" data-original-title="{{ 'Edit' | trans }}" class="btn btn-default mb-xs" role="button" href="{{ path('settings_edit', { 'id': setting.id }) }}">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                &nbsp;
+                                <a data-parent="#content" data-toggle="tooltip" data-placement="top" title="{{ 'Delete' | trans }}" data-original-title="{{ 'Delete' | trans }}" class="btn btn-danger mb-xs btn-delete" role="button" href="{{ path('settings_delete', { 'id': setting.id }) }}">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>                    
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

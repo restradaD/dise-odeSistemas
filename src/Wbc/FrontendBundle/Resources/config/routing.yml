@@ -1,0 +1,7 @@
+wbc_frontend_homepage:
+    path:     /
+    defaults: { _controller: WbcFrontendBundle:Default:index }
+
+grand_central:
+    path:     /session/dispatcher
+    defaults: { _controller: WbcFrontendBundle:Default:grandCentral }

@@ -1,0 +1,46 @@
+Wbc\AdministratorBundle\Entity\User:
+  type: entity
+  table: base_user
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    first_name:
+      type: string
+      length: 255
+      nullable: true
+    last_name:
+      type: string
+      length: 255
+      nullable: true
+  manyToOne:
+    locale:
+      targetEntity: Wbc\AdministratorBundle\Entity\Locale
+      inversedBy: user
+      joinColumns:
+        locale_id:
+          referencedColumnName: id
+    greeting:
+      targetEntity: Wbc\AdministratorBundle\Entity\Greeting
+      inversedBy: user
+      joinColumns:
+        greeting_id:
+          referencedColumnName: id
+    timezone:
+      targetEntity: Wbc\AdministratorBundle\Entity\Timezone
+      inversedBy: user
+      joinColumns:
+        timezone_id:
+          referencedColumnName: id
+    role:
+      targetEntity: Wbc\AdministratorBundle\Entity\Role
+      inversedBy: user
+      joinColumns:
+        role_id:
+          referencedColumnName: id
+  oneToMany:
+    auth_client:
+      targetEntity: Wbc\AuthBundle\Entity\OAuthClient
+      mappedBy: user

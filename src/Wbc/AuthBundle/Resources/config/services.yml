@@ -1,0 +1,4 @@
+services:
+#    wbc_auth.example:
+#        class: Wbc\AuthBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

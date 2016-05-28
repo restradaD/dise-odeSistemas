@@ -1,0 +1,33 @@
+Wbc\AdministratorBundle\Entity\I18NResource:
+  type: entity
+  table: base_i18n_resource
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 200
+      nullable: true
+    slug:
+      type: string
+      length: 200
+      nullable: true
+    type:
+      type: string
+      length: 200
+      nullable: true
+    content:
+      type: text
+      nullable: true
+    logo:
+      type: text
+      nullable: true
+  manyToOne:
+    locale:
+      targetEntity: Wbc\AdministratorBundle\Entity\Locale
+      joinColumns:
+        locale_id:
+          referencedColumnName: id

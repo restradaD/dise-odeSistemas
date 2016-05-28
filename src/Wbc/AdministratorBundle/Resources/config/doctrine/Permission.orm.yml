@@ -1,0 +1,42 @@
+Wbc\AdministratorBundle\Entity\Permission:
+  type: entity
+  table: base_permission
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 255
+      nullable: true
+    description:
+      type: text
+      nullable: true
+    created_by:
+      type: integer
+      nullable: true
+    created_at:
+      type: datetime
+      nullable: true
+    updated_by:
+      type: integer
+      nullable: true
+    updated_at:
+      type: datetime
+      nullable: true
+  manyToMany:
+    role:
+      targetEntity: Wbc\AdministratorBundle\Entity\Role
+      inversedBy: permission
+      joinTable:
+        name: base_role_has_permission
+        joinColumns:
+          permission_id:
+            referencedColumnName: id
+            nullable: false
+        inverseJoinColumns:
+          role_id:
+            referencedColumnName: id
+            nullable: false

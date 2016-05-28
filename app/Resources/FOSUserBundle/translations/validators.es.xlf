@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="717412185b61194420c7def0b42418f1" resname="fos_user.username.already_used">
+        <source>fos_user.username.already_used</source>
+        <target>El nombre de usuario ya está en uso</target>
+      </trans-unit>
+      <trans-unit id="e6b436802106350f126526dff34d889c" resname="fos_user.username.blank">
+        <source>fos_user.username.blank</source>
+        <target>Por favor, ingrese un nombre de usuario</target>
+      </trans-unit>
+      <trans-unit id="a96e6b81d15a20e05150a905e30d70c4" resname="fos_user.username.short">
+        <source>fos_user.username.short</source>
+        <target>[-Inf,Inf]El nombre de usuario es demasiado corto</target>
+      </trans-unit>
+      <trans-unit id="8eb91da705aa09b820f19e5a4e06d1fe" resname="fos_user.username.long">
+        <source>fos_user.username.long</source>
+        <target>[-Inf,Inf]El nombre de usuario es demasiado largo</target>
+      </trans-unit>
+      <trans-unit id="a55be57cc201693bfdc2c9021f8fd48d" resname="fos_user.email.already_used">
+        <source>fos_user.email.already_used</source>
+        <target>La dirección de correo ya está en uso</target>
+      </trans-unit>
+      <trans-unit id="6ff439fdb45d5bd0d58e8d210df8be77" resname="fos_user.email.blank">
+        <source>fos_user.email.blank</source>
+        <target>Por favor, ingrese una dirección de correo</target>
+      </trans-unit>
+      <trans-unit id="f21278704589f38c6334b87af1479cf9" resname="fos_user.email.short">
+        <source>fos_user.email.short</source>
+        <target>[-Inf,Inf]La dirección de correo es demasiado corta</target>
+      </trans-unit>
+      <trans-unit id="966201b57a32472001eeb20f251cce59" resname="fos_user.email.long">
+        <source>fos_user.email.long</source>
+        <target>[-Inf,Inf]La dirección de correo es demasiado larga</target>
+      </trans-unit>
+      <trans-unit id="fc6c24981b4c0a57ce247c8687a585ea" resname="fos_user.email.invalid">
+        <source>fos_user.email.invalid</source>
+        <target>La dirección de correo no es válida</target>
+      </trans-unit>
+      <trans-unit id="dcd6d14d0786e48363cedfda2f1ae893" resname="fos_user.password.blank">
+        <source>fos_user.password.blank</source>
+        <target>Por favor, ingrese una contraseña</target>
+      </trans-unit>
+      <trans-unit id="208830cde0e30a97e31cae31d1815c35" resname="fos_user.password.short">
+        <source>fos_user.password.short</source>
+        <target>[-Inf,Inf]La contraseña es demasiado corta</target>
+      </trans-unit>
+      <trans-unit id="3667cc0b146684942ce0704d5e42a9b2" resname="fos_user.password.mismatch">
+        <source>fos_user.password.mismatch</source>
+        <target>Las dos contraseñas no coinciden</target>
+      </trans-unit>
+      <trans-unit id="f0ece6087844064be20e41cd21c83003" resname="fos_user.new_password.blank">
+        <source>fos_user.new_password.blank</source>
+        <target>Por favor, ingrese una nueva contraseña</target>
+      </trans-unit>
+      <trans-unit id="d1ffe65daab12410d2dd22cca9723647" resname="fos_user.new_password.short">
+        <source>fos_user.new_password.short</source>
+        <target>[-Inf,Inf]La nueva contraseña es demasiado corta</target>
+      </trans-unit>
+      <trans-unit id="1a522a38b8255b11eac79b60a5b7ddf9" resname="fos_user.current_password.invalid">
+        <source>fos_user.current_password.invalid</source>
+        <target>La contraseña ingresada no es válida</target>
+      </trans-unit>
+      <trans-unit id="444a31e89e0320314cdd1b4d9f693447" resname="fos_user.group.blank">
+        <source>fos_user.group.blank</source>
+        <target>Por favor, ingrese un nombre</target>
+      </trans-unit>
+      <trans-unit id="ae2e51c83ca7620416400ccc476363ad" resname="fos_user.group.short">
+        <source>fos_user.group.short</source>
+        <target>[-Inf,Inf]El nombre es demasiado corto</target>
+      </trans-unit>
+      <trans-unit id="cb4f03d698d34db020dcdfb4422024d0" resname="fos_user.group.long">
+        <source>fos_user.group.long</source>
+        <target>[-Inf,Inf]El nombre es demasiado largo</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

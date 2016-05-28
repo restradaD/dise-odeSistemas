@@ -1,0 +1,4 @@
+wbc_api_homepage:
+    path:     /
+    defaults: { _controller: WbcAPIBundle:Default:index }
+    methods: [GET]

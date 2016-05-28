@@ -1,0 +1,9 @@
+<ul class="dropdown-menu">
+    <li><a href="{{ path('fos_user_profile_edit') }}"><i class="glyphicon glyphicon-user"></i> &nbsp; {% trans %}My Account{% endtrans %}</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('lexik_translation_grid') }}">{% trans %}Configure translations{% endtrans %}</a></li>
+    <li><a href="{{ path('settings_index') }}">{% trans %}Settings{% endtrans %}</a></li>
+    <li><a href="{{ path('cache_clear') }}">{% trans %}Clear cache{% endtrans %}</a></li>
+    <li class="divider"></li>
+    <li><a href="{{  path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> &nbsp; {% trans %}Log Out{% endtrans %}</a></li>
+</ul>

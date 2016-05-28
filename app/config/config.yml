@@ -1,0 +1,305 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: en
+
+framework:
+    #esi:             ~
+    translator:      { fallbacks: ["%locale%"] }
+    #translator: ~
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        project:
+            name:      "Base"
+            tradename: "Base project by Rodmar Zavala"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #     path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        dql:
+            string_functions:
+                 MD5: Wbc\ServicesBundle\DQL\MD5Function
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+services:
+    fos_user.doctrine_registry:
+            alias: doctrine
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Wbc\AdministratorBundle\Entity\User
+    profile:
+        form:
+            type: Wbc\AdministratorBundle\Form\ProfileFormType
+
+nelmio_api_doc: ~
+
+assetic:
+    bundles:        [ FOSUserBundle, WbcAdministratorBundle, WbcThemeBundle ]
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        scssphp:
+            formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+        jsqueeze: ~
+        cssrewrite: ~
+        #uglifyjs:
+        #    bin: /usr/local/bin/uglifyjs
+        #uglifycss:
+        #    bin: /usr/local/bin/uglifycss
+    assets:
+        search:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/img/search.png'
+            output: 'img/search.png'
+        avatar:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/img/avatar.png'
+            output: 'img/avatar.png'
+        open-sans-bold:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/css/fonts/google/open-sans-bold.woff'
+            output: 'css/fonts/google/open-sans-bold.woff'
+        fontawesome-webfont:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/font-awesome/fonts/fontawesome-webfont.woff2'
+            output: 'vendor/font-awesome/fonts/fontawesome-webfont.woff2'
+        open-sans-light:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/css/fonts/google/open-sans-light.woff'
+            output: 'css/fonts/google/open-sans-light.woff'
+        open-sans:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/css/fonts/google/open-sans.woff'
+            output: 'css/fonts/google/open-sans.woff'
+        open-sans-semibold:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/css/fonts/google/open-sans-semibold.woff'
+            output: 'css/fonts/google/open-sans-semibold.woff'
+        glyphicons-halflings-regularwoff2:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2'
+            output: 'vendor/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2'
+        glyphicons-halflings-regularwoff:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff'
+            output: 'vendor/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff'
+        glyphicons-halflings-regularttf:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf'
+            output: 'vendor/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf'
+        fontawesome-webfontwoff:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/font-awesome/fonts/fontawesome-webfont.woff'
+            output: 'vendor/font-awesome/fonts/fontawesome-webfont.woff'
+        fontawesome-webfontsvg:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/font-awesome/fonts/fontawesome-webfont.svg'
+            output: 'Resources/public/fonts/fontawesome-webfont.svg'
+        fontawesome-webfontwoff-safari:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/font-awesome/fonts/fontawesome-webfont.woff'
+            output: 'Resources/public/fonts/fontawesome-webfont.woff'
+        jquery-min-map:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/jquery/dist/jquery.min.map'
+            output: 'js/jquery.min.map'
+        fontawesome-webfontttf-safari:
+            inputs: '%kernel.root_dir%/../src/Wbc/ThemeBundle/Resources/public/vendor/font-awesome/fonts/fontawesome-webfont.ttf'
+            output: 'Resources/public/fonts/fontawesome-webfont.ttf'
+        backendcss:
+            inputs:
+                - '@WbcThemeBundle/Resources/public/css/vendor/sweetalert/sweetalert.css'
+                - '@WbcThemeBundle/Resources/public/css/app.css'
+            filter: cssrewrite
+            output: "css/extra.css"
+        start_js:
+            input:
+                - '@WbcThemeBundle/Resources/public/vendor/jquery/dist/jquery.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/moment/min/moment.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/moment/min/locales.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/moment/min/moment.min.js'
+            filter: ?jsqueeze
+            outout: "js/start.js"
+        commonlibs:
+            inputs:
+                - '@WbcThemeBundle/Resources/public/vendor/jquery-pjax/jquery.pjax.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/transition.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/collapse.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/button.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/popover.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/alert.js'
+                - '@WbcThemeBundle/Resources/public/vendor/slimScroll/jquery.slimscroll.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/widgster/widgster.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jquery-touchswipe/jquery.touchSwipe.js'
+                - '@WbcThemeBundle/Resources/public/vendor/messenger/build/js/messenger.js'
+                - '@WbcThemeBundle/Resources/public/vendor/messenger/build/js/messenger-theme-flat.js'
+                - '@WbcThemeBundle/Resources/public/vendor/twix/twix.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/blur/blur.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/sweetalert/sweetalert.min.js'
+                # commonappjs
+                - '@WbcThemeBundle/Resources/public/js/keymaster.js'
+                - '@WbcThemeBundle/Resources/public/js/settings.js'
+                - '@WbcThemeBundle/Resources/public/js/shortcuts.js'
+                - '@WbcThemeBundle/Resources/public/js/app.js'
+                - '@WbcThemeBundle/Resources/public/js/init.js'
+                # datatables_js
+                - '@WbcThemeBundle/Resources/public/vendor/datatables/media/js/jquery.dataTables.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-select/dist/js/bootstrap-select.min.js'
+                # form_js
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/modal.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-select/dist/js/bootstrap-select.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap3-wysihtml5/lib/js/wysihtml5-0.3.0.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap3-wysihtml5/src/bootstrap3-wysihtml5.js'
+                - '@WbcThemeBundle/Resources/public/vendor/select2/select2.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/switchery/dist/switchery.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jasny-bootstrap/js/inputmask.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jasny-bootstrap/js/fileinput.js'
+                - '@WbcThemeBundle/Resources/public/vendor/holderjs/holder.js'
+                - '@WbcThemeBundle/Resources/public/vendor/dropzone/dist/min/dropzone.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/markdown/lib/markdown.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-markdown/js/bootstrap-markdown.js'
+                - '@WbcThemeBundle/Resources/public/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js'
+                # - '@WbcThemeBundle/Resources/public/js/form-elements.js'
+                # dashbaord
+                - '@WbcThemeBundle/Resources/public/vendor/underscore/underscore.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jquery.sparkline/index.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jquery.sparkline/index.js'
+                - '@WbcThemeBundle/Resources/public/vendor/d3/d3.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/rickshaw/rickshaw.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/raphael/raphael-min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jQuery-Mapael/js/jquery.mapael.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jQuery-Mapael/js/maps/usa_states.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jQuery-Mapael/js/maps/world_countries.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap-sass/assets/javascripts/bootstrap/popover.js'
+                - '@WbcThemeBundle/Resources/public/vendor/bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/jquery-animateNumber/jquery.animateNumber.min.js'
+                - '@WbcThemeBundle/Resources/public/vendor/notify/notify.js'
+                - '@WbcThemeBundle/Resources/public/js/index.js'
+            filter: ?jsqueeze
+            output: "js/libs.js"
+liip_imagine:
+    resolvers:
+        default:
+            web_path:
+                web_root: %kernel.root_dir%/../web
+                cache_prefix: /photos/cache
+    filter_sets:
+        104x104:
+            quality: 80
+            filters:
+                upscale: { min: [104, 104] }
+                thumbnail: { size: [104, 104], mode: outbound, allow_upscale: true }
+        50x50:
+            quality: 80
+            filters:
+                upscale: { min: [50, 50] }
+                thumbnail: { size: [50, 50], mode: outbound, allow_upscale: true }
+        300xN:
+            quality: 80
+            filters:
+                relative_resize: { widen: 300 }
+        800x600:
+            quality: 80
+            filters:
+                upscale: { min: [800, 600] }
+                thumbnail: { size: [800, 600], mode: outbound, allow_upscale: true }
+        1024x786:
+            quality: 100
+            filters:
+                upscale: { min: [1024, 786] }
+                thumbnail: { size: [1024, 786], mode: outbound, allow_upscale: true }
+        1280xN:
+            quality: 100
+            filters:
+                relative_resize: { widen: 1280 }
+        1920xN:
+            quality: 80
+            filters:
+                relative_resize: { widen: 1920 }
+
+lexik_translation:
+    fallback_locale: [en]         # (required) default locale(s) to use
+    managed_locales: [en, fr, de, es] # (required) locales that the bundle have to manage
+    base_layout: "WbcThemeBundle::translate.html.twig"
+
+vich_uploader:
+    db_driver: orm
+
+lexik_currency:
+    currencies:
+        default: GTQ              # [required] the default currency
+        managed: [GTQ, EUR, USD, CRC, BZD, GBP, MXN, JPY]  # [required] all currencies used in your app
+    currency_class: Wbc\AdministratorBundle\Entity\Currency
+
+# FOSOAuthServer
+fos_oauth_server:
+    db_driver: orm       # Drivers available: orm, mongodb, or propel
+    client_class:        Wbc\AuthBundle\Entity\OAuthClient
+    access_token_class:  Wbc\AuthBundle\Entity\OAuthAccessToken
+    refresh_token_class: Wbc\AuthBundle\Entity\OAuthRefreshToken
+    auth_code_class:     Wbc\AuthBundle\Entity\OAuthAuthCode
+    service:
+        user_provider: fos_user.user_provider.username
+
+vresh_twilio:
+    #(Required) Your Account SID from www.twilio.com/user/account
+    sid: 'XXXXXXXX'
+    #(Required) Your Auth Token from www.twilio.com/user/account
+    authToken: 'YYYYYYYY'
+    #(Optional, default: '2010-04-01') Twilio API version
+    version: '2010-04-01'
+    #(Optional, default: 1) Number of times to retry failed requests
+    retryAttempts: 3
+
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/DoctrineMigrations"
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations

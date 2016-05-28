@@ -1,0 +1,115 @@
+{% extends 'WbcThemeBundle::layout.html.twig' %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class=""><a href="{{ path('role_index') }}">{{ 'Role list' | trans }}</a></li>
+    <li class="active">{{ 'Role creation' | trans }}</li>
+{% endblock %}
+
+{% block title %}
+    {{ 'Role creation' | trans }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h1 class="page-title">{{ 'Role creation' | trans }}</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="widget">
+
+                <div class="widget-body">
+                    {{ form_start(form, { 'attr': { 'role': 'form' } }) }}
+                        {{ form_errors(form) }}
+
+                        <fieldset>
+                            <legend>{{ 'General' | trans }}</legend>
+
+                            {% for input in form.children %}
+                                {% if input.vars.block_prefixes[1] == 'hidden' %}
+
+                                {% elseif input.vars.block_prefixes[1] == 'text' and input.vars.block_prefixes[2] == 'textarea'  %}
+                                    <div class="form-group col-md-12">
+                                        {{ form_label(input) }}
+                                        {{ form_errors(input) }}
+                                        {{ form_widget(input) }}
+                                    </div>
+                                {% elseif input.vars.block_prefixes[1] == 'checkbox' %}
+                                    <div class="form-group col-md-2">
+                                        <div class="checkbox checkbox-primary">
+                                            {{ form_widget(input) }}
+                                            {{ form_label(input) }}
+                                            {{ form_errors(input) }}
+                                        </div>
+                                    </div>
+                                {% elseif input.vars.block_prefixes[1] == 'choice' and input.vars.expanded %}
+                                    <div class="form-group col-md-6">
+                                        <div class="">
+                                            {{ form_label(input) }}
+                                            {{ form_errors(input) }}
+                                            {{ form_widget(input, { 'attr': { 'class': 'select2 form-control' } }) }}
+                                        </div>
+                                    </div>
+                                {% elseif input.vars.block_prefixes[1] == 'file' %}
+                                    <div class="form-group col-md-6">
+                                        {{ form_label(input) }}
+                                        {{ form_errors(input) }}
+                                        <br>
+
+                                        <div class="col-sm-6">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                    <img data-src="holder.js/100%x100%" alt="..." src="http://dummyimage.com/270x200/000000/ffffff&text={{ 'Select image' | trans }}">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                                <div>
+                                                    <span class="btn btn-default btn-file">
+                                                        <span class="fileinput-new">{{ 'Select image' | trans }}</span>
+                                                        <span class="fileinput-exists">Ch{{ 'Change' | trans }}ange</span>
+                                                        {{ form_widget(input) }}
+                                                    </span>
+                                                    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">{{ 'Remove' | trans }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% elseif input.vars.block_prefixes[1] == 'choice' %}
+                                    <div class="form-group col-md-6">
+                                        {{ form_label(input) }}
+                                        {{ form_errors(input) }}
+                                        {{ form_widget(input) }}
+                                    </div>
+                                {% else %}
+                                    <div class="form-group col-md-6">
+                                        {{ form_label(input) }}
+                                        {{ form_errors(input) }}
+                                        {{ form_widget(input) }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                        </fieldset>
+
+                        <div class="hide">
+                            {{ form_rest(form) }}
+                        </div>
+
+                        <div class="form-actions">
+                            <input type="submit" class="btn btn-primary btn-rounded pull-right btn-submit" style="margin-left: 5px;" data-gerund="{{ 'Saving...' | trans }}" value="{{ 'Save' | trans }}" />
+                            <a href="{{ path('role_index') }}" class="btn btn-default btn-rounded pull-right">{{ 'Cancel' | trans }}</a>
+                            <div class="clearfix"></div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </section>
+        </div>
+    </div>
+
+    {% javascripts output='js/forms.js' filter='?jsqueeze' 'bundles/wbctheme/js/form-elements.js'%}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+
+
+{% block extrascripts %}
+{% endblock %}

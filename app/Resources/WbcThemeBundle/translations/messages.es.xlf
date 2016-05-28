@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="902b0d55fddef6f8d651fe1035b7d4bd" resname="Error">
+        <source>Error</source>
+        <target>__Error</target>
+      </trans-unit>
+      <trans-unit id="144410544f383d0d04479ca676ba780f" resname="If you are sure it should, search for it.">
+        <source>If you are sure it should, search for it.</source>
+        <target>__If you are sure it should, search for it.</target>
+      </trans-unit>
+      <trans-unit id="339f7a2e087a159e6a31501649027a77" resname="Homepage">
+        <source>Homepage</source>
+        <target>__Homepage</target>
+      </trans-unit>
+      <trans-unit id="7b7bc2512ee1fedcd76bdc68926d4f7b" resname="Administrator">
+        <source>Administrator</source>
+        <target>__Administrator</target>
+      </trans-unit>
+      <trans-unit id="1680eb3508406a2d3bbf40034938dd20" resname="There is some important for you to know">
+        <source>There is some important for you to know</source>
+        <target>__There is some important for you to know</target>
+      </trans-unit>
+      <trans-unit id="5d445b58972bef9455ff2429350fd098" resname="Congratulations! you are so smart!">
+        <source>Congratulations! you are so smart!</source>
+        <target>__Congratulations! you are so smart!</target>
+      </trans-unit>
+      <trans-unit id="0d98172ab021de952465bc17a366876e" resname="Error, please try it later!">
+        <source>Error, please try it later!</source>
+        <target>__Error, please try it later!</target>
+      </trans-unit>
+      <trans-unit id="2938c7f7e560ed972f8a4f68e80ff834" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>__Dashboard</target>
+      </trans-unit>
+      <trans-unit id="51640f16af7213a6e36f131fae976ab4" resname="Turn on/off sidebar collapsing">
+        <source>Turn on/off sidebar collapsing</source>
+        <target>__Turn on/off sidebar collapsing</target>
+      </trans-unit>
+      <trans-unit id="b02c1fea64c22d825d5e4454e32fe8b1" resname="Show/hide sidebar">
+        <source>Show/hide sidebar</source>
+        <target>__Show/hide sidebar</target>
+      </trans-unit>
+      <trans-unit id="0a7d7ee2cd88ecf359bb02caf004af67" resname="You have %count% notifications">
+        <source>You have %count% notifications</source>
+        <target>__You have %count% notifications</target>
+      </trans-unit>
+      <trans-unit id="9c104d6b3e0e54921ca71dfcf967d2d9" resname="Synced at: %date%">
+        <source>Synced at: %date%</source>
+        <target>__Synced at: %date%</target>
+      </trans-unit>
+      <trans-unit id="c00f8363fc5000ae41d9b791210d8e9c" resname="Search Dashboard">
+        <source>Search Dashboard</source>
+        <target>__Search Dashboard</target>
+      </trans-unit>
+      <trans-unit id="bea8d9e6a0d57c4a264756b4f9822ed9" resname="My Account">
+        <source>My Account</source>
+        <target>__My Account</target>
+      </trans-unit>
+      <trans-unit id="f4f70727dc34561dfde1a3c529b6205c" resname="Settings">
+        <source>Settings</source>
+        <target>__Settings</target>
+      </trans-unit>
+      <trans-unit id="79c0d6cba080dc90b01c887064c9fc2f" resname="Clear cache">
+        <source>Clear cache</source>
+        <target>__Clear cache</target>
+      </trans-unit>
+      <trans-unit id="b0c2b25b3312c7a32d7aa9d701b6ae1d" resname="Log Out">
+        <source>Log Out</source>
+        <target>__Log Out</target>
+      </trans-unit>
+      <trans-unit id="3ad6cb6100190c8f81e99fd52debf7ef" resname="Labels">
+        <source>Labels</source>
+        <target>__Labels</target>
+      </trans-unit>
+      <trans-unit id="eee9ee16828576feb558957c3f6f1daf" resname="My Recent">
+        <source>My Recent</source>
+        <target>__My Recent</target>
+      </trans-unit>
+      <trans-unit id="35bce01f5978d18822a6186d58816d5d" resname="Starred">
+        <source>Starred</source>
+        <target>__Starred</target>
+      </trans-unit>
+      <trans-unit id="a9ded1e5ce5d75814730bb4caaf49419" resname="Background">
+        <source>Background</source>
+        <target>__Background</target>
+      </trans-unit>
+      <trans-unit id="f9aae5fda8d810a29f12d1e61b4ab25f" resname="Users">
+        <source>Users</source>
+        <target>__Users</target>
+      </trans-unit>
+      <trans-unit id="6450242531912981c3683cae88a32a66" resname="Forms">
+        <source>Forms</source>
+        <target>__Forms</target>
+      </trans-unit>
+      <trans-unit id="40788b8b1ac6b84ec923f311739fa9f3" resname="Form Elements">
+        <source>Form Elements</source>
+        <target>__Form Elements</target>
+      </trans-unit>
+      <trans-unit id="4ca2c524aa65eb77deb45d85741af322" resname="Form Validation">
+        <source>Form Validation</source>
+        <target>__Form Validation</target>
+      </trans-unit>
+      <trans-unit id="ce44811defea7956263e36a1ea562584" resname="Form Wizard">
+        <source>Form Wizard</source>
+        <target>__Form Wizard</target>
+      </trans-unit>
+      <trans-unit id="54e1d44609e3abed11f6e1eb6ae54988" resname="Projects">
+        <source>Projects</source>
+        <target>__Projects</target>
+      </trans-unit>
+      <trans-unit id="4253e52d290384f76c24e67af329bbd3" resname="Sales Report">
+        <source>Sales Report</source>
+        <target>__Sales Report</target>
+      </trans-unit>
+      <trans-unit id="c3480e909fec55e716293f22907b8808" resname="Calculating x-axis bias... `percent`%">
+        <source>Calculating x-axis bias... `percent`%</source>
+        <target>__Calculating x-axis bias... `percent`%</target>
+      </trans-unit>
+      <trans-unit id="470d6d8eb761e7f33f65fc661c3a933e" resname="Personal Responsibility">
+        <source>Personal Responsibility</source>
+        <target>__Personal Responsibility</target>
+      </trans-unit>
+      <trans-unit id="bde2af292176d9f2642a79124bf878bd" resname="Provide required notes">
+        <source>Provide required notes</source>
+        <target>__Provide required notes</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

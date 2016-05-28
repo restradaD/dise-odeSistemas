@@ -1,0 +1,28 @@
+Wbc\AdministratorBundle\Entity\LogChanges:
+  type: entity
+  table: base_log_changes
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 255
+      nullable: true
+    old:
+      type: text
+      nullable: true
+    new:
+      type: text
+      nullable: true
+  lifecycleCallbacks:
+    prePersist: [setCreatedAtValue, setCreatedByValue]
+    preUpdate: [setUpdatedAtValue, setUpdatedByValue]
+  manyToOne:
+    log:
+      targetEntity: Wbc\AdministratorBundle\Entity\Log
+      joinColumns:
+        log_id:
+          referencedColumnName: id

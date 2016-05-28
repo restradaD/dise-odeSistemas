@@ -1,0 +1,53 @@
+<h4>{{ 'General information' | trans }}</h4>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th width="100px">Id</th>
+            <td width="100px">{{ locale.id }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Name</th>
+            <td width="100px">{{ locale.name }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Code</th>
+            <td width="100px">{{ locale.code }}</td>
+        </tr>
+        <tr>
+            <th width="100px">Country_code</th>
+            <td width="100px">{{ locale.countrycode }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>{{ 'Changes' | trans }}</h4>
+<table class="table table-bordered">
+    <tbody>
+        {% for log in changes %}
+            <tr>
+                <th width="100px">{{ 'User' | trans }}</th>
+                <td>{{ log.user }}</td>
+                <th width="100px">{{ 'Date' | trans }}</th>
+                <td><span title="{{ log.createdat | date('Y-m-d H:i') }}">{{ log.createdat | ago }}</span></td>
+            </tr>
+            {% for innerChange in log.logChanges %}
+                <tr>
+                    {% if innerChange.old != '' or innerChange.new != '' %}
+                    <td colspan="4">
+                        <span class="">
+                            {% trans with {'%field%': innerChange.name, '%from%': innerChange.old | default('NOTHING') , '%to%': innerChange.new | default('NOTHING') } %} <span class='label label-info'>%field%</span> from <strong>%from%</strong> to <strong>%to%</strong> {% endtrans %}
+                        </span>
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<script>
+    $('#infoModalLabel').html('Locale');
+
+</script>

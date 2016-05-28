@@ -4,7 +4,7 @@ diseño de sistemas
 
 # Symfony3 Project by Rene estrada
 
-A Symfony project created on January 22, 2016, 2:00 am.
+A Symfony project created on May 27, 2016,.
 This will be the base for all Symfony3 applications.
 
 ##Required
@@ -45,7 +45,7 @@ php bin/console cache:clear --env=prod
 ##Generate Model and update DB
 ```
 php bin/console doctrine:generate:entities WbcAdministratorBundle
-php bin/console doctrine:schema:update --force
+    php bin/console doctrine:schema:update --force
 ```
 
 ##Update translation XML

@@ -93,8 +93,7 @@
 
 
 {% block extrascripts %}
-{% endblock %}
-<script type="text/javascript" src="{{ get('faye_server_url') }}/client.js"></script>
+{% endblock %} 
 
 <script>
     function playTTS(read,lang) {
@@ -215,65 +214,7 @@
         var supported = notify.isSupported;
 
         notify.requestPermission();
-
-        var client = new Faye.Client('{{ get('faye_server_url') }}', {timeout: 120, retry: 5});
-
-        client.addExtension({
-            outgoing: function(message, callback) {
-                if (message.channel !== '/meta/subscribe')
-                    return callback(message);
-
-                message.ext = message.ext || {};
-                message.ext.userId = '21';
-                message.ext.token = '958eca670492eb7808d708aff555e479';
-                callback(message);
-            }
-        });
-
-        client.on('transport:down', function() {
-          console.log('the client is offline');
-        });
-
-        client.on('transport:up', function() {
-          console.log('the client is online');
-        });
-
-        var subscription = client.subscribe('/97466963906905728714/notify', function(message) {
-
-            console.log(message);
-
-            if(permissionLevels[notify.permissionLevel()] == 2 || !supported){
-              notify.requestPermission();
-
-              $.gritter.add({
-                title: message.title || 'Info' ,
-                text: message.message,
-                image: message.icon,
-                sticky: true,
-                time: '',
-                class_name: 'my-sticky-class'
-              });
-
-            }else{
-              notify.createNotification(message.title || 'info', {
-                  body: message.message,
-                  icon: message.icon,
-                  tag: message.id
-              });
-            }
-
-            return false;
-        });
-
-        subscription.then(function() {
-          publication.then(function() {
-            //console.log('Message received by server!');
-          }, function(error) {
-            //console.log('There was a problem: ' + error.message);
-          });
-        });
-
-
+ 
     });
 </script>
 

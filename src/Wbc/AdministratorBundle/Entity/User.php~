@@ -302,4 +302,43 @@ class User extends BaseUser
     {
         return $this->auth_client;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $empleado;
+
+
+    /**
+     * Add empleado
+     *
+     * @param \Wbc\AdministratorBundle\Entity\user $empleado
+     *
+     * @return User
+     */
+    public function addEmpleado(\Wbc\AdministratorBundle\Entity\user $empleado)
+    {
+        $this->empleado[] = $empleado;
+
+        return $this;
+    }
+
+    /**
+     * Remove empleado
+     *
+     * @param \Wbc\AdministratorBundle\Entity\user $empleado
+     */
+    public function removeEmpleado(\Wbc\AdministratorBundle\Entity\user $empleado)
+    {
+        $this->empleado->removeElement($empleado);
+    }
+
+    /**
+     * Get empleado
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEmpleado()
+    {
+        return $this->empleado;
+    }
 }

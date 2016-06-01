@@ -16,4 +16,8 @@ Wbc\AdministratorBundle\Entity\Linea:
             type: string
             length: '500'
             nullable: true
+    oneToMany:
+      linea_producto:
+        targetEntity: LineaProducto
+        mappedBy: linea
     lifecycleCallbacks: {  }

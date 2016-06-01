@@ -305,4 +305,43 @@ class Producto
     {
         return $this->certificado;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $linea_producto;
+
+
+    /**
+     * Add lineaProducto
+     *
+     * @param \Wbc\AdministratorBundle\Entity\LineaProducto $lineaProducto
+     *
+     * @return Producto
+     */
+    public function addLineaProducto(\Wbc\AdministratorBundle\Entity\LineaProducto $lineaProducto)
+    {
+        $this->linea_producto[] = $lineaProducto;
+
+        return $this;
+    }
+
+    /**
+     * Remove lineaProducto
+     *
+     * @param \Wbc\AdministratorBundle\Entity\LineaProducto $lineaProducto
+     */
+    public function removeLineaProducto(\Wbc\AdministratorBundle\Entity\LineaProducto $lineaProducto)
+    {
+        $this->linea_producto->removeElement($lineaProducto);
+    }
+
+    /**
+     * Get lineaProducto
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLineaProducto()
+    {
+        return $this->linea_producto;
+    }
 }

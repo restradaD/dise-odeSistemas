@@ -25,6 +25,14 @@
             {% trans %}Linea de producto{% endtrans %}
         </a>
     </li>
+    <li {% if getMenuItem() == 'LineaProducto' %}class="active"{% endif %}>
+        <a href="{{ path('lineaproducto_index') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Asociar a linea{% endtrans %}
+        </a>
+    </li>
     <li {% if getMenuItem() == 'Proveedor' %}class="active"{% endif %}>
         <a href="{{ path('proveedor_index') }}">
             <span class="icon">

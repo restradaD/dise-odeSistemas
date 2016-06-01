@@ -1,0 +1,29 @@
+Wbc\AdministratorBundle\Entity\LineaProducto:
+    type: entity
+    table: linea_producto
+    repositoryClass: Wbc\AdministratorBundle\Repository\LineaProductoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        creacion:
+            type: datetime
+    manyToOne:
+      linea:
+        targetEntity: Linea
+        inversedBy: linea_producto
+        joinColumns:
+          linea_id:
+            referencedColumnName: id
+            nullable: false
+      producto:
+        targetEntity: Producto
+        inversedBy: linea_producto
+        joinColumns:
+          producto_id:
+            referencedColumnName: id
+            nullable: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+lineaproducto_index:
+    path:     /
+    defaults: { _controller: "WbcAdministratorBundle:LineaProducto:index" }
+    methods:  GET
+
+lineaproducto_show:
+    path:     /{id}/show
+    defaults: { _controller: "WbcAdministratorBundle:LineaProducto:show" }
+    methods:  GET
+
+lineaproducto_new:
+    path:     /new
+    defaults: { _controller: "WbcAdministratorBundle:LineaProducto:new" }
+    methods:  [GET, POST]
+
+lineaproducto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WbcAdministratorBundle:LineaProducto:edit" }
+    methods:  [GET, POST]
+
+lineaproducto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WbcAdministratorBundle:LineaProducto:delete" }

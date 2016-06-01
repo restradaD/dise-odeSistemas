@@ -43,4 +43,7 @@ Wbc\AdministratorBundle\Entity\Producto:
       certificado:
         targetEntity: Certificado
         mappedBy: producto
+      linea_producto:
+        targetEntity: LineaProducto
+        mappedBy: producto
     lifecycleCallbacks: {  }

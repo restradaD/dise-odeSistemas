@@ -61,4 +61,8 @@ wbc_administrator_beneficio:
 wbc_administrator_empleado:
         resource: "@WbcAdministratorBundle/Resources/config/routing/empleado.yml"
         prefix:   /empleado
+        
+wbc_administrator_lineaproducto:
+        resource: "@WbcAdministratorBundle/Resources/config/routing/lineaproducto.yml"
+        prefix:   /lineaproducto
 

@@ -84,4 +84,50 @@ class Linea
     {
         return $this->descripcion;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $linea_producto;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->linea_producto = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add lineaProducto
+     *
+     * @param \Wbc\AdministratorBundle\Entity\LineaProducto $lineaProducto
+     *
+     * @return Linea
+     */
+    public function addLineaProducto(\Wbc\AdministratorBundle\Entity\LineaProducto $lineaProducto)
+    {
+        $this->linea_producto[] = $lineaProducto;
+
+        return $this;
+    }
+
+    /**
+     * Remove lineaProducto
+     *
+     * @param \Wbc\AdministratorBundle\Entity\LineaProducto $lineaProducto
+     */
+    public function removeLineaProducto(\Wbc\AdministratorBundle\Entity\LineaProducto $lineaProducto)
+    {
+        $this->linea_producto->removeElement($lineaProducto);
+    }
+
+    /**
+     * Get lineaProducto
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLineaProducto()
+    {
+        return $this->linea_producto;
+    }
 }

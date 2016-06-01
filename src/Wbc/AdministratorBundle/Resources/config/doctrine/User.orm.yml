@@ -47,3 +47,6 @@ Wbc\AdministratorBundle\Entity\User:
     empleado:
         targetEntity: user
         mappedBy: empleado
+    venta:
+        targetEntity: Venta
+        mappedBy: user

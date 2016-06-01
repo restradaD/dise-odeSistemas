@@ -1,0 +1,17 @@
+Wbc\AdministratorBundle\Entity\TipoPago:
+    type: entity
+    table: tipo_pago
+    repositoryClass: Wbc\AdministratorBundle\Repository\TipoPagoRepository
+    id:
+        id:
+            type: integer
+            id: true
+    fields:
+        nombre:
+            type: string
+            length: '200'
+        descripcion:
+            type: string
+            length: '500'
+            nullable: true
+    lifecycleCallbacks: {  }

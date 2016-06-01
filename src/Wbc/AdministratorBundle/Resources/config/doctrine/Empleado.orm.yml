@@ -45,4 +45,7 @@ Wbc\AdministratorBundle\Entity\Empleado:
       pago_empleado:
         targetEntity: PagoEmpleado
         mappedBy: empleado
+      compra:
+        targetEntity: Compra
+        mappedBy: empleado
     lifecycleCallbacks: {  }

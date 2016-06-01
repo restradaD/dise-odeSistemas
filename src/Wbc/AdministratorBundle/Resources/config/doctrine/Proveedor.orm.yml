@@ -29,4 +29,8 @@ Wbc\AdministratorBundle\Entity\Proveedor:
         fechaCreacion:
             type: datetime
             column: fecha_creacion
+    oneToMany:
+      compra:
+        targetEntity: Compra
+        mappedBy: proveedor
     lifecycleCallbacks: {  }

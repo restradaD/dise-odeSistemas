@@ -1,0 +1,29 @@
+Wbc\AdministratorBundle\Entity\Compra:
+    type: entity
+    table: compra
+    repositoryClass: Wbc\AdministratorBundle\Repository\CompraRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        creacion:
+            type: datetime
+    manyToOne:
+      empleado:
+        targetEntity: Empleado
+        inversedBy: compra
+        joinColumns:
+          empleado_id:
+            referencedColumnName: id
+            nullable: false
+      proveedor:
+        targetEntity: Proveedor
+        inversedBy: compra
+        joinColumns:
+          proveedor_id:
+            referencedColumnName: id
+            nullable: false
+    lifecycleCallbacks: {  }

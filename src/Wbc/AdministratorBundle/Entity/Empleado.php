@@ -245,4 +245,43 @@ class Empleado
     {
         return $this->pago_empleado;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $compra;
+
+
+    /**
+     * Add compra
+     *
+     * @param \Wbc\AdministratorBundle\Entity\Compra $compra
+     *
+     * @return Empleado
+     */
+    public function addCompra(\Wbc\AdministratorBundle\Entity\Compra $compra)
+    {
+        $this->compra[] = $compra;
+
+        return $this;
+    }
+
+    /**
+     * Remove compra
+     *
+     * @param \Wbc\AdministratorBundle\Entity\Compra $compra
+     */
+    public function removeCompra(\Wbc\AdministratorBundle\Entity\Compra $compra)
+    {
+        $this->compra->removeElement($compra);
+    }
+
+    /**
+     * Get compra
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompra()
+    {
+        return $this->compra;
+    }
 }

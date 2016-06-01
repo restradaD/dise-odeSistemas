@@ -1,0 +1,22 @@
+Wbc\AdministratorBundle\Entity\Venta:
+    type: entity
+    table: venta
+    repositoryClass: Wbc\AdministratorBundle\Repository\VentaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        creacion:
+            type: datetime
+    manyToOne:
+      user:
+        targetEntity: User
+        inversedBy: venta
+        joinColumns:
+          user_id:
+            referencedColumnName: id
+            nullable: false
+    lifecycleCallbacks: {  }

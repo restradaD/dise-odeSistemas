@@ -200,4 +200,50 @@ class Proveedor
     {
         return $this->fechaCreacion;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $compra;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->compra = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add compra
+     *
+     * @param \Wbc\AdministratorBundle\Entity\Compra $compra
+     *
+     * @return Proveedor
+     */
+    public function addCompra(\Wbc\AdministratorBundle\Entity\Compra $compra)
+    {
+        $this->compra[] = $compra;
+
+        return $this;
+    }
+
+    /**
+     * Remove compra
+     *
+     * @param \Wbc\AdministratorBundle\Entity\Compra $compra
+     */
+    public function removeCompra(\Wbc\AdministratorBundle\Entity\Compra $compra)
+    {
+        $this->compra->removeElement($compra);
+    }
+
+    /**
+     * Get compra
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompra()
+    {
+        return $this->compra;
+    }
 }

@@ -341,4 +341,43 @@ class User extends BaseUser
     {
         return $this->empleado;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $venta;
+
+
+    /**
+     * Add ventum
+     *
+     * @param \Wbc\AdministratorBundle\Entity\Venta $ventum
+     *
+     * @return User
+     */
+    public function addVentum(\Wbc\AdministratorBundle\Entity\Venta $ventum)
+    {
+        $this->venta[] = $ventum;
+
+        return $this;
+    }
+
+    /**
+     * Remove ventum
+     *
+     * @param \Wbc\AdministratorBundle\Entity\Venta $ventum
+     */
+    public function removeVentum(\Wbc\AdministratorBundle\Entity\Venta $ventum)
+    {
+        $this->venta->removeElement($ventum);
+    }
+
+    /**
+     * Get venta
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVenta()
+    {
+        return $this->venta;
+    }
 }

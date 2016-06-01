@@ -199,4 +199,50 @@ class Empleado
     {
         return $this->empresa;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $pago_empleado;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pago_empleado = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add pagoEmpleado
+     *
+     * @param \Wbc\AdministratorBundle\Entity\PagoEmpleado $pagoEmpleado
+     *
+     * @return Empleado
+     */
+    public function addPagoEmpleado(\Wbc\AdministratorBundle\Entity\PagoEmpleado $pagoEmpleado)
+    {
+        $this->pago_empleado[] = $pagoEmpleado;
+
+        return $this;
+    }
+
+    /**
+     * Remove pagoEmpleado
+     *
+     * @param \Wbc\AdministratorBundle\Entity\PagoEmpleado $pagoEmpleado
+     */
+    public function removePagoEmpleado(\Wbc\AdministratorBundle\Entity\PagoEmpleado $pagoEmpleado)
+    {
+        $this->pago_empleado->removeElement($pagoEmpleado);
+    }
+
+    /**
+     * Get pagoEmpleado
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPagoEmpleado()
+    {
+        return $this->pago_empleado;
+    }
 }

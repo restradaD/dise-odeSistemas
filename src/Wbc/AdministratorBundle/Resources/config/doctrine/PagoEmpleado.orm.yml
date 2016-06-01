@@ -1,0 +1,38 @@
+Wbc\AdministratorBundle\Entity\PagoEmpleado:
+    type: entity
+    table: pago_empleado
+    repositoryClass: Wbc\AdministratorBundle\Repository\PagoEmpleadoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sueldo:
+            type: decimal
+            precision: 10
+            scale: '2'
+        mes:
+            type: integer
+        totalBeneficio:
+            type: decimal
+            precision: 10
+            scale: '2'
+            column: total_beneficio
+        totalPago:
+            type: decimal
+            precision: 10
+            scale: '2'
+            column: total_pago
+        creacion:
+            type: datetime
+    manyToOne:
+      empleado:
+        targetEntity: Empleado
+        inversedBy: pago_empleado
+        joinColumns:
+          empleado_id:
+            referencedColumnName: id
+            nullable: false
+    lifecycleCallbacks: {  }

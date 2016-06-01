@@ -41,4 +41,8 @@ Wbc\AdministratorBundle\Entity\Empleado:
           empresa_id:
             referencedColumnName: id
             nullable: false
+    oneToMany:
+      pago_empleado:
+        targetEntity: PagoEmpleado
+        mappedBy: empleado
     lifecycleCallbacks: {  }

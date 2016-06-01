@@ -65,6 +65,15 @@
             {% trans %}Empleado{% endtrans %}
         </a>
     </li>
+    
+    <li {% if getMenuItem() == 'PagoEmpleado' %}class="active"{% endif %}>
+        <a href="{{ path('pagoempleado_index') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Pago a empleado{% endtrans %}
+        </a>
+    </li>
     <li {% if getMenuItem() == 'user' %}class="active"{% endif %}>
         <a href="{{ path('user_index') }}">
             <span class="icon">

@@ -26,4 +26,11 @@ Wbc\AdministratorBundle\Entity\Compra:
           proveedor_id:
             referencedColumnName: id
             nullable: false
+    oneToMany:
+      factura:
+        targetEntity: Factura
+        mappedBy: compra
+      detalle_producto:
+        targetEntity: DetalleProducto
+        mappedBy: compra
     lifecycleCallbacks: {  }

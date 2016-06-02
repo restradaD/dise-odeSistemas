@@ -19,4 +19,11 @@ Wbc\AdministratorBundle\Entity\Venta:
           user_id:
             referencedColumnName: id
             nullable: false
+    oneToMany:
+      factura:
+        targetEntity: Factura
+        mappedBy: venta
+      detalle_producto:
+        targetEntity: DetalleProducto
+        mappedBy: venta
     lifecycleCallbacks: {  }

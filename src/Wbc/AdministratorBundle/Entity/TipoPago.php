@@ -99,4 +99,50 @@ class TipoPago
 
         return $this;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $factura;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->factura = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add factura
+     *
+     * @param \Wbc\AdministratorBundle\Entity\Factura $factura
+     *
+     * @return TipoPago
+     */
+    public function addFactura(\Wbc\AdministratorBundle\Entity\Factura $factura)
+    {
+        $this->factura[] = $factura;
+
+        return $this;
+    }
+
+    /**
+     * Remove factura
+     *
+     * @param \Wbc\AdministratorBundle\Entity\Factura $factura
+     */
+    public function removeFactura(\Wbc\AdministratorBundle\Entity\Factura $factura)
+    {
+        $this->factura->removeElement($factura);
+    }
+
+    /**
+     * Get factura
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFactura()
+    {
+        return $this->factura;
+    }
 }

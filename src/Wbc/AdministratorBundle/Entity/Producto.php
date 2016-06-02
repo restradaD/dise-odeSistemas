@@ -344,4 +344,43 @@ class Producto
     {
         return $this->linea_producto;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $detalle_producto;
+
+
+    /**
+     * Add detalleProducto
+     *
+     * @param \Wbc\AdministratorBundle\Entity\DetalleProducto $detalleProducto
+     *
+     * @return Producto
+     */
+    public function addDetalleProducto(\Wbc\AdministratorBundle\Entity\DetalleProducto $detalleProducto)
+    {
+        $this->detalle_producto[] = $detalleProducto;
+
+        return $this;
+    }
+
+    /**
+     * Remove detalleProducto
+     *
+     * @param \Wbc\AdministratorBundle\Entity\DetalleProducto $detalleProducto
+     */
+    public function removeDetalleProducto(\Wbc\AdministratorBundle\Entity\DetalleProducto $detalleProducto)
+    {
+        $this->detalle_producto->removeElement($detalleProducto);
+    }
+
+    /**
+     * Get detalleProducto
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDetalleProducto()
+    {
+        return $this->detalle_producto;
+    }
 }

@@ -1,0 +1,50 @@
+Wbc\AdministratorBundle\Entity\DetalleProducto:
+    type: entity
+    table: detalle_producto
+    repositoryClass: Wbc\AdministratorBundle\Repository\DetalleProductoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        precioUnidad:
+            type: decimal
+            precision: 10
+            scale: '2'
+            column: precio_unidad
+        cantidad:
+            type: integer
+        tipoOperacion:
+            type: integer
+            column: tipo_operacion
+        total:
+            type: decimal
+            precision: 10
+            scale: '2'
+        creacion:
+            type: datetime
+    manyToOne:
+      producto:
+        targetEntity: Producto
+        inversedBy: detalle_producto
+        joinColumns:
+          producto_id:
+            referencedColumnName: id
+            nullable: false
+      compra:
+        targetEntity: Compra
+        inversedBy: factura
+        joinColumns:
+          compra_id:
+            referencedColumnName: id
+            nullable: true
+      venta:
+        targetEntity: Venta
+        inversedBy: factura
+        joinColumns:
+          venta_id:
+            referencedColumnName: id
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -46,4 +46,7 @@ Wbc\AdministratorBundle\Entity\Producto:
       linea_producto:
         targetEntity: LineaProducto
         mappedBy: producto
+      detalle_producto:
+        targetEntity: DetalleProducto
+        mappedBy: producto
     lifecycleCallbacks: {  }

@@ -14,4 +14,8 @@ Wbc\AdministratorBundle\Entity\TipoPago:
             type: string
             length: '500'
             nullable: true
+    oneToMany:
+      factura:
+        targetEntity: Factura
+        mappedBy: tipo_pago
     lifecycleCallbacks: {  }

@@ -29,7 +29,7 @@ class Factura
     
     
     public function __toString() {
-        return $this->total;
+        return $this->total. ' ';
     }
 
 

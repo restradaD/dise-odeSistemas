@@ -21,3 +21,8 @@ producto_edit:
 producto_delete:
     path:     /{id}/delete
     defaults: { _controller: "WbcAdministratorBundle:Producto:delete" }
+    
+producto_comprar:
+    path:     /comprar
+    defaults: { _controller: "WbcAdministratorBundle:Producto:comprarProducto" }
+    methods:  [GET, POST]

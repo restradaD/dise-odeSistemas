@@ -87,8 +87,9 @@ class ProductoController extends Controller {
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($producto);
-            $em->flush();
+
+            $productoClass = new \Wbc\AdministratorBundle\Model\Producto($em);
+            $productoClass->administrarProducto($producto);  // flush product edit
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('Producto updated!'));
 

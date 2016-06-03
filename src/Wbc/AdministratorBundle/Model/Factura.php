@@ -24,7 +24,7 @@ class Factura {
     public $ventaEntity;
     public $total;
 
-    public function __construct($venta, $total, $em) {
+    public function __construct($em, $venta = null, $total = null) {
 
         $this->ventaEntity = $venta;
         $this->_em = $em;
@@ -60,6 +60,22 @@ class Factura {
             $this->errorMessage = $ex->getMessage();
             return false;
         }
+    }
+
+    /**
+     * Genera un nuevo certificado para un producto
+     * @param object $certificado
+     * @return object
+     */
+    public function generarCertificado($certificado) {
+
+        $now = new \DateTime('now');
+        $certificado->setFechaCreacion($now);
+
+        $this->_em->persist($certificado);
+        $this->_em->flush();
+
+        return $certificado;
     }
 
     private function pagarProductos() {

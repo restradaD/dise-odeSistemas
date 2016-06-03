@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Wbc\AdministratorBundle\Entity\Certificado;
 use Wbc\AdministratorBundle\Form\CertificadoType;
+use Wbc\AdministratorBundle\Model\Factura;
 
 /**
  * Certificado controller.
@@ -43,13 +44,11 @@ class CertificadoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
-            $now = new \DateTime('now');
-            $certificado->setFechaCreacion($now);
-            
             $em = $this->getDoctrine()->getManager();
-            $em->persist($certificado);
-            $em->flush();
+            
+            $factura = new Factura($em); 
+            $factura->generarCertificado($certificado); //flush certificado
+            
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('Certificado created!'));
 
@@ -90,8 +89,9 @@ class CertificadoController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($certificado);
-            $em->flush();
+            
+            $producto = new \Wbc\AdministratorBundle\Model\Producto($em);
+            $producto->administrarCertificado($certificado); // flush certificado  
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('Certificado updated!'));
 

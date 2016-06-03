@@ -23,7 +23,7 @@ class Producto {
     private $_em;
     public $errorMessage;
 
-    public function __construct($userEntity, $em) {
+    public function __construct($em, $userEntity = null) {
 
         $this->clienteEntity = $userEntity;
         $this->_em = $em;
@@ -46,6 +46,36 @@ class Producto {
             $this->_em->persist($venta);
 
             return $venta;
+        } catch (Exception $ex) {
+            $this->errorMessage = $ex->getMessage();
+            return false;
+        }
+    }
+
+    /**
+     * Edita producto en bd
+     * @param object $producto
+     * @return object
+     */
+    public function administrarProducto($producto) {
+
+        $this->_em->persist($producto);
+        $this->_em->flush();
+
+        return $producto;
+    }
+
+    /**
+     * Edita un certificado
+     * @param object $certificado
+     * @return boolean
+     */
+    public function administrarCertificado($certificado) {
+
+        try {
+
+            $this->_em->persist($certificado);
+            $this->_em->flush();
         } catch (Exception $ex) {
             $this->errorMessage = $ex->getMessage();
             return false;

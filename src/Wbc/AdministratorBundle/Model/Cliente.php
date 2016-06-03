@@ -39,7 +39,7 @@ class Cliente {
      */
     public function comprarPruductos($procutos) {
 
-        $productoClass = new Producto($this->clienteEntity, $this->_em);
+        $productoClass = new Producto($this->_em, $this->clienteEntity);
 
         $venta = $productoClass->vender();
 
@@ -64,7 +64,7 @@ class Cliente {
             $detalleProducto->comprarProducto($producto);
         }
 
-        $factura = new Factura($venta, $this->total, $this->_em);
+        $factura = new Factura($this->_em, $venta, $this->total);
 
         $factura->generarFactura();
 

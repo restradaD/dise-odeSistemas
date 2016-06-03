@@ -65,7 +65,7 @@
             {% trans %}Empleado{% endtrans %}
         </a>
     </li>
-    
+
     <li {% if getMenuItem() == 'PagoEmpleado' %}class="active"{% endif %}>
         <a href="{{ path('pagoempleado_index') }}">
             <span class="icon">
@@ -81,30 +81,7 @@
             </span>
             {% trans %}Users{% endtrans %}
         </a>
-    </li>
-    <li>
-        <!-- an example of nested submenu. basic bootstrap collapse component -->
-        <a class="collapsed" href="#sidebar-forms" data-toggle="collapse" data-parent="#sidebar">
-            <span class="icon">
-                <i class="glyphicon glyphicon-align-right"></i>
-            </span>
-            {% trans %}Forms{% endtrans %}
-            <i class="toggle fa fa-angle-down"></i>
-        </a>
-        <ul id="sidebar-forms" class="collapse">
-            <li><a href="form_elements.html">{% trans %}Form Elements{% endtrans %}</a></li>
-            <li><a href="form_validation.html">{% trans %}Form Validation{% endtrans %}</a></li>
-            <li><a href="form_wizard.html">{% trans %}Form Wizard{% endtrans %}</a></li>
-        </ul>
-    </li>
-    <li {% if getMenuItem() == 'settings' %}class="active"{% endif %}>
-        <a href="{{ path('settings_index') }}">
-            <span class="icon">
-                <i class="fa fa-cogs"></i>
-            </span>
-            {% trans %}Settings{% endtrans %}
-        </a>
-    </li>
+    </li>  
     {% if get('use_translations') %}
         <li {% if getMenuItem() == 'I18NResource' %}class="active"{% endif %}>
             <a href="{{ path('i18nresource_index') }}">
@@ -126,9 +103,7 @@
                 <i class="toggle fa fa-angle-down"></i>
             </a>
             <ul id="sidebar-security" class="collapse">
-                <li><a href="{{ path('role_index') }}">{% trans %}Roles{% endtrans %}</a></li>
-                <li><a href="{{ path('permission_index') }}">{% trans %}Permissions{% endtrans %}</a></li>
-                <li><a href="{{ path('oauth_client_index') }}">{% trans %}My Apps{% endtrans %}</a></li>
+                <li><a href="{{ path('role_index') }}">{% trans %}Roles{% endtrans %}</a></li> 
             </ul>
         </li>
     {% endif %}

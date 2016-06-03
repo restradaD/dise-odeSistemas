@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Wbc\AdministratorBundle\Entity\Empleado;
 use Wbc\AdministratorBundle\Form\EmpleadoType;
+use Wbc\AdministratorBundle\Model\EncargadoRH;
 
 /**
  * Empleado controller.
@@ -90,8 +91,9 @@ class EmpleadoController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($empleado);
-            $em->flush();
+            
+            $encargadoRH = new EncargadoRH($em);
+            $encargadoRH->administrarEmpleados($empleado); //flush edit empleado
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('Empleado updated!'));
 

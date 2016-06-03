@@ -30,6 +30,22 @@ class Producto {
     }
 
     /**
+     * Agrega un nuevo producto en la bd
+     * @param object $producto
+     * @return boolean
+     */
+    public function Comprar($producto) {
+
+        $now = new \DateTime('now');
+        $producto->setFechaCreacion($now);
+
+        $this->_em->persist($producto);
+        $this->_em->flush();
+
+        return true;
+    }
+
+    /**
      * Crea un registro en entidad venta y la retorna
      * @return boolean|Venta
      */

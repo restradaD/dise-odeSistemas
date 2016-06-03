@@ -43,12 +43,9 @@ class ProductoController extends Controller {
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $now = new \DateTime('now');
-            $producto->setFechaCreacion($now);
-
             $em = $this->getDoctrine()->getManager();
-            $em->persist($producto);
-            $em->flush();
+            $productoClass = new \Wbc\AdministratorBundle\Model\Producto($em);
+            $productoClass->Comprar($producto); //flush new product
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('Producto created!'));
 
@@ -67,11 +64,15 @@ class ProductoController extends Controller {
      */
     public function showAction(Producto $producto) {
 
+        $em = $this->getDoctrine()->getManager();
+        $cliente = new Cliente($this->getUser(), $em);
+        $productoDetalle = $cliente->consultarProducto($producto->getId());
+
         $this->get('Services')->setMenuItem('Producto');
         $changes = $this->get('Services')->getLogsByEntity($producto);
 
         return $this->render('producto/show.html.twig', array(
-                    'producto' => $producto,
+                    'producto' => $productoDetalle,
                     'changes' => $changes,
         ));
     }

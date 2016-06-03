@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Wbc\AdministratorBundle\Entity\Beneficio;
 use Wbc\AdministratorBundle\Form\BeneficioType;
+use Wbc\AdministratorBundle\Model\EncargadoRH;
 
 /**
  * Beneficio controller.
@@ -43,13 +44,10 @@ class BeneficioController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
-            $now = new \DateTime('now');
-            $beneficio->setFechaCreacion($now);
-            
             $em = $this->getDoctrine()->getManager();
-            $em->persist($beneficio);
-            $em->flush();
+            
+            $encargadoRH = new EncargadoRH($em);
+            $encargadoRH->administrarPrestaciones($beneficio); //flush new beneficio 
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('Beneficio created!'));
 

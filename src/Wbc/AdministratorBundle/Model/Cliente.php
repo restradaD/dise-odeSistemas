@@ -31,6 +31,17 @@ class Cliente {
         $this->clienteEntity = $userEntity;
         $this->_em = $em;
     }
+    
+    /**
+     * Trae los datos de un producto
+     * @param int $productoId
+     * @return object
+     */
+    public function consultarProducto($productoId){
+        $producto = $this->_em->getRepository('WbcAdministratorBundle:Producto')->findOneById($productoId);
+        
+        return $producto;
+    }
 
     /**
      * Genera factura a partir de una venta del sistema

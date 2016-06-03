@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Wbc\AdministratorBundle\Entity\PagoEmpleado;
 use Wbc\AdministratorBundle\Form\PagoEmpleadoType;
+use Wbc\AdministratorBundle\Model\EncargadoFinanzas;
 
 /**
  * PagoEmpleado controller.
@@ -43,13 +44,10 @@ class PagoEmpleadoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) { 
-            
-            $now = new \DateTime('now');
-            $pagoEmpleado->setCreacion($now);
-            
             $em = $this->getDoctrine()->getManager();
-            $em->persist($pagoEmpleado);
-            $em->flush();
+            
+            $encargadoFinanzas = new EncargadoFinanzas($em);
+            $encargadoFinanzas->pagarEmpleado($pagoEmpleado); // flush nuevo pagp
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('PagoEmpleado created!'));
 

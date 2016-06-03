@@ -8,6 +8,7 @@ use Wbc\AdministratorBundle\Entity\Producto;
 use Wbc\AdministratorBundle\Form\ProductoType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Wbc\AdministratorBundle\Model\Cliente;
+use Wbc\AdministratorBundle\Model\Gerente;
 
 /**
  * Producto controller.
@@ -22,8 +23,9 @@ class ProductoController extends Controller {
     public function indexAction() {
         $this->get('Services')->setMenuItem('Producto');
         $em = $this->getDoctrine()->getManager();
+        $gerente = new Gerente($em);
 
-        $productos = $em->getRepository('WbcAdministratorBundle:Producto')->findAll();
+        $productos = $gerente->generarReporteCompras();
 
         return $this->render('producto/index.html.twig', array(
                     'productos' => $productos,

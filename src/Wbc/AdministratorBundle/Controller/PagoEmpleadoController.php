@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Wbc\AdministratorBundle\Entity\PagoEmpleado;
 use Wbc\AdministratorBundle\Form\PagoEmpleadoType;
 use Wbc\AdministratorBundle\Model\EncargadoFinanzas;
+use Wbc\AdministratorBundle\Model\EncargadoRH;
 
 /**
  * PagoEmpleado controller.
@@ -87,9 +88,10 @@ class PagoEmpleadoController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            
             $em = $this->getDoctrine()->getManager();
-            $em->persist($pagoEmpleado);
-            $em->flush();
+            $encargadoRH = new EncargadoRH($em);
+            $encargadoRH->administrarSalarios($pagoEmpleado); 
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('PagoEmpleado updated!'));
 

@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Wbc\AdministratorBundle\Entity\LineaProducto;
 use Wbc\AdministratorBundle\Form\LineaProductoType;
+use Wbc\AdministratorBundle\Model\EncargadoCompras;
 
 /**
  * LineaProducto controller.
@@ -44,12 +45,10 @@ class LineaProductoController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-            $now = new \DateTime('now');
-            $lineaProducto->setCreacion($now);
+            $em = $this->getDoctrine()->getManager();             
+            $encargadoCompras= new EncargadoCompras($em);
             
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($lineaProducto);
-            $em->flush();
+            $encargadoCompras->gestionarInventario($lineaProducto); 
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('LineaProducto created!'));
 

@@ -4,14 +4,16 @@ namespace Wbc\AdministratorBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Wbc\AdministratorBundle\Model\Producto;
 
 class DefaultController extends Controller {
 
     public function indexAction() {
 
         $em = $this->getDoctrine()->getManager();
-
-        $productos = $em->getRepository('WbcAdministratorBundle:Producto')->findAll();
+        
+        $producto = new Producto($em); 
+        $productos = $producto->aplicarOferta();
 
         $this->get('Services')->setMenuItem('dashboard');
         return $this->render('WbcAdministratorBundle:Default:index.html.twig', array(

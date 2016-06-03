@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Wbc\AdministratorBundle\Entity\User;
 use Wbc\AdministratorBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Wbc\AdministratorBundle\Model\EncargadoLogistica;
 
 /**
  * User controller.
@@ -24,8 +25,10 @@ class UserController extends Controller
         $this->get('Services')->setMenuItem('user');
 
         $em = $this->getDoctrine()->getManager();
+        
+        $encargadoLogistica = new EncargadoLogistica($em);
 
-        $users = $em->getRepository('WbcAdministratorBundle:User')->findAll();
+        $users = $encargadoLogistica->consultarClientes();
 
         return $this->render('WbcAdministratorBundle:User:index.html.twig', array(
             'users' => $users,

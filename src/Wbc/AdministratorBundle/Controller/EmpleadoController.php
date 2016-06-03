@@ -4,30 +4,30 @@ namespace Wbc\AdministratorBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Wbc\AdministratorBundle\Entity\Empleado;
 use Wbc\AdministratorBundle\Form\EmpleadoType;
 use Wbc\AdministratorBundle\Model\EncargadoRH;
+use Wbc\AdministratorBundle\Model\Gerente;
 
 /**
  * Empleado controller.
  *
  */
-class EmpleadoController extends Controller
-{
+class EmpleadoController extends Controller {
+
     /**
      * Lists all Empleado entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $this->get('Services')->setMenuItem('Empleado');
         $em = $this->getDoctrine()->getManager();
+        $gerente = new Gerente($em);
 
-        $empleados = $em->getRepository('WbcAdministratorBundle:Empleado')->findAll();
+        $empleados = $gerente->generarReportePlanilla();
 
         return $this->render('empleado/index.html.twig', array(
-            'empleados' => $empleados,
+                    'empleados' => $empleados,
         ));
     }
 
@@ -35,8 +35,7 @@ class EmpleadoController extends Controller
      * Creates a new Empleado entity.
      *
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request) {
         $this->get('Services')->setMenuItem('Empleado');
 
         $empleado = new Empleado();
@@ -44,10 +43,10 @@ class EmpleadoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
+
             $now = new \DateTime('now');
             $empleado->setFechaCreacion($now);
-            
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($empleado);
             $em->flush();
@@ -58,8 +57,8 @@ class EmpleadoController extends Controller
         }
 
         return $this->render('empleado/new.html.twig', array(
-            'empleado' => $empleado,
-            'form' => $form->createView(),
+                    'empleado' => $empleado,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -67,15 +66,14 @@ class EmpleadoController extends Controller
      * Finds and displays a Empleado entity.
      *
      */
-    public function showAction(Empleado $empleado)
-    {
+    public function showAction(Empleado $empleado) {
 
         $this->get('Services')->setMenuItem('Empleado');
         $changes = $this->get('Services')->getLogsByEntity($empleado);
 
         return $this->render('empleado/show.html.twig', array(
-            'empleado' => $empleado,
-            'changes' => $changes,
+                    'empleado' => $empleado,
+                    'changes' => $changes,
         ));
     }
 
@@ -83,15 +81,14 @@ class EmpleadoController extends Controller
      * Displays a form to edit an existing Empleado entity.
      *
      */
-    public function editAction(Request $request, Empleado $empleado)
-    {
+    public function editAction(Request $request, Empleado $empleado) {
         $this->get('Services')->setMenuItem('Empleado');
         $editForm = $this->createForm('Wbc\AdministratorBundle\Form\EmpleadoType', $empleado);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            
+
             $encargadoRH = new EncargadoRH($em);
             $encargadoRH->administrarEmpleados($empleado); //flush edit empleado
 
@@ -101,8 +98,8 @@ class EmpleadoController extends Controller
         }
 
         return $this->render('empleado/edit.html.twig', array(
-            'empleado' => $empleado,
-            'form'        => $editForm->createView()
+                    'empleado' => $empleado,
+                    'form' => $editForm->createView()
         ));
     }
 
@@ -110,8 +107,7 @@ class EmpleadoController extends Controller
      * Deletes a Empleado entity.
      *
      */
-    public function deleteAction(Request $request, Empleado $empleado)
-    {
+    public function deleteAction(Request $request, Empleado $empleado) {
         $em = $this->getDoctrine()->getManager();
         $em->remove($empleado);
         $em->flush();

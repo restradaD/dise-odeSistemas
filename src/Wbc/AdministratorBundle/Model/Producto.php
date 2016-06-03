@@ -30,6 +30,16 @@ class Producto {
     }
 
     /**
+     * Trae todos los productos para agregarlos al catalogo de productos
+     * @return array
+     */
+    public function aplicarOferta() {
+        $productos = $this->_em->getRepository('WbcAdministratorBundle:Producto')->findAll();
+
+        return $productos;
+    }
+
+    /**
      * Agrega un nuevo producto en la bd
      * @param object $producto
      * @return boolean

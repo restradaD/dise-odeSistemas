@@ -41,6 +41,16 @@ class EncargadoRH {
     }
 
     /**
+     * Edita un pago a empleados
+     * @param object $pagoEmpleado
+     */
+    public function administrarSalarios($pagoEmpleado) {
+
+        $this->_em->persist($pagoEmpleado);
+        $this->_em->flush();
+    }
+
+    /**
      * Crea un registro en beneficio flush
      * @param object $beneficio
      * @return object

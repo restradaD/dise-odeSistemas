@@ -16,21 +16,20 @@ use Wbc\AdministratorBundle\Entity\DetalleProducto;
  * @author rene
  */
 class EncargadoCompras {
- 
+
     private $cantidad;
-    private $ventaEntity; 
+    private $ventaEntity;
     public $errorMessage;
     private $_em;
 
     public function __construct($em, $cantidad = null, $venta = null) {
 
-        
+
         $this->ventaEntity = $venta;
         $this->cantidad = $cantidad;
         $this->_em = $em;
     }
-    
-    
+
     /**
      * Crea un registro en entidad DetalleProducto y lo retorna por cada producto vendido en una misma factura
      * @param type $producto
@@ -52,7 +51,7 @@ class EncargadoCompras {
             $detalleProducto->setVenta($this->ventaEntity);
 
             $this->_em->persist($detalleProducto);
- 
+
             return $detalleProducto;
         } catch (Exception $ex) {
             $this->errorMessage = $ex->getMessage();
@@ -77,6 +76,19 @@ class EncargadoCompras {
             $this->errorMessage = $ex->getMessage();
             return false;
         }
+    }
+
+    /**
+     * Asocia un producto a una linea
+     * @param object $lineaProducto
+     */
+    public function gestionarInventario($lineaProducto) {
+
+        $now = new \DateTime('now');
+        $lineaProducto->setCreacion($now);
+
+        $this->_em->persist($lineaProducto);
+        $this->_em->flush();
     }
 
 }

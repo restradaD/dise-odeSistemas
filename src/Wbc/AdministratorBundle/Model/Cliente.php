@@ -9,7 +9,7 @@
 namespace Wbc\AdministratorBundle\Model;
 
 use Wbc\AdministratorBundle\Model\Producto;
-use Wbc\AdministratorBundle\Model\CompraProducto;
+use Wbc\AdministratorBundle\Model\EncargadoCompras;
 use Wbc\AdministratorBundle\Model\Factura;
 
 /**
@@ -31,15 +31,15 @@ class Cliente {
         $this->clienteEntity = $userEntity;
         $this->_em = $em;
     }
-    
+
     /**
      * Trae los datos de un producto
      * @param int $productoId
      * @return object
      */
-    public function consultarProducto($productoId){
+    public function consultarProducto($productoId) {
         $producto = $this->_em->getRepository('WbcAdministratorBundle:Producto')->findOneById($productoId);
-        
+
         return $producto;
     }
 
@@ -54,7 +54,7 @@ class Cliente {
 
         $venta = $productoClass->vender();
 
-        $detalleProducto = new CompraProducto(1, $venta, $this->_em);
+        $detalleProducto = new EncargadoCompras($this->_em, 1, $venta);
         if (is_array($procutos)) {
 
             foreach ($procutos as $procutoId) {

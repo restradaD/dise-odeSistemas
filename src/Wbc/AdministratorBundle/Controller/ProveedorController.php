@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Wbc\AdministratorBundle\Entity\Proveedor;
 use Wbc\AdministratorBundle\Form\ProveedorType;
+use Wbc\AdministratorBundle\Model\EncargadoCompras;
 
 /**
  * Proveedor controller.
@@ -90,8 +91,9 @@ class ProveedorController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($proveedor);
-            $em->flush();
+            
+            $encargadoCompras = new EncargadoCompras($em);
+            $encargadoCompras->gestionarProveedores($proveedor); //flush edicion de proveedor 
 
             $this->get('Services')->addFlash('success', $this->get('translator')->trans('Proveedor updated!'));
 

@@ -26,3 +26,14 @@ producto_comprar:
     path:     /comprar
     defaults: { _controller: "WbcAdministratorBundle:Producto:comprarProducto" }
     methods:  [GET, POST]
+    
+producto_ventas:
+    path:     /ventas
+    defaults: { _controller: "WbcAdministratorBundle:Producto:ventas" }
+    methods:  GET
+    
+
+producto_showventa:
+    path:     /{id}/showventa
+    defaults: { _controller: "WbcAdministratorBundle:Producto:showventa" }
+    methods:  GET

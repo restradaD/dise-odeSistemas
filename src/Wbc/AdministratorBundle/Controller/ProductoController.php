@@ -9,6 +9,8 @@ use Wbc\AdministratorBundle\Form\ProductoType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Wbc\AdministratorBundle\Model\Cliente;
 use Wbc\AdministratorBundle\Model\Gerente;
+use Wbc\AdministratorBundle\Model\EncargadoLogistica;
+use Wbc\AdministratorBundle\Entity\Venta;
 
 /**
  * Producto controller.
@@ -29,6 +31,42 @@ class ProductoController extends Controller {
 
         return $this->render('producto/index.html.twig', array(
                     'productos' => $productos,
+        ));
+    }
+
+    /**
+     * Generaicion de reporte de facturas
+     * @return array
+     */
+    public function ventasAction() {
+        $this->get('Services')->setMenuItem('Ventas');
+        $em = $this->getDoctrine()->getManager();
+        $encargadoLogistica = new EncargadoLogistica($em);
+
+        $productos = $encargadoLogistica->generarReporteDeVentas();
+
+        return $this->render('producto/ventas.html.twig', array(
+                    'productos' => $productos,
+        ));
+    }
+
+    /**
+     * Listado de productos comprados segun factura
+     * @param Venta $Venta
+     * @return array
+     */
+    public function showventaAction(Venta $Venta) {
+
+        $em = $this->getDoctrine()->getManager();
+        $gerente = new Gerente($em);
+        $productos = $gerente->generarReporteDeVentas($Venta->getId());
+
+        $this->get('Services')->setMenuItem('Listado de Productos comprados por factura');
+        $changes = $this->get('Services')->getLogsByEntity($Venta);
+
+        return $this->render('producto/showventa.html.twig', array(
+                    'productos' => $productos,
+                    'changes' => $changes,
         ));
     }
 

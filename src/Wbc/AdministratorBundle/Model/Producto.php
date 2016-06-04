@@ -108,4 +108,20 @@ class Producto {
         }
     }
 
+    /**
+     * Verifica la existencia de un producto antes de ser vendido
+     * @param object $producto
+     * @return boolean
+     */
+    public function notificarStockBajo($producto) {
+
+        if (intval($producto->getExistencia()) <= 0) {
+            $nombre = $producto->getNombre();
+            $this->errorMessage = "No es podsible comprar el producto: $nombre ya que no hay existencia en bodega";
+            return false;
+        }
+
+        return true;
+    }
+
 }

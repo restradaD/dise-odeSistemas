@@ -43,4 +43,21 @@ class Gerente {
         return $empleados;
     }
 
+    /**
+     * Trae el listado de productos por factura de ventas 
+     * @param int $ventaId
+     * @return array
+     */
+    public function generarReporteDeVentas($ventaId) {
+
+        $query = $this->_em->createQuery("SELECT p.id, p.nombre, p.precioVenta, p.descripcion FROM Wbc\AdministratorBundle\Entity\DetalleProducto dp JOIN dp.venta v JOIN dp.producto p WHERE v.id = :ventaId ORDER BY p.nombre ASC");
+        $query->setParameter('ventaId', $ventaId);
+        $data = $query->getResult();
+
+        if (empty($data)) {
+            return null;
+        }
+        return $data;
+    }
+
 }

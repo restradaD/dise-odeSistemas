@@ -33,6 +33,14 @@
             {% trans %}Asociar a linea{% endtrans %}
         </a>
     </li>
+    <li {% if getMenuItem() == 'Ventas' %}class="active"{% endif %}>
+        <a href="{{ path('producto_ventas') }}">
+            <span class="icon">
+                <i class="fa fa-group"></i>
+            </span>
+            {% trans %}Reporte de ventas{% endtrans %}
+        </a>
+    </li>
     <li {% if getMenuItem() == 'Proveedor' %}class="active"{% endif %}>
         <a href="{{ path('proveedor_index') }}">
             <span class="icon">

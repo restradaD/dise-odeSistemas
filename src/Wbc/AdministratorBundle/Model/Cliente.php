@@ -59,6 +59,11 @@ class Cliente {
 
             foreach ($procutos as $procutoId) {
                 $producto = $this->_em->getRepository('WbcAdministratorBundle:Producto')->findOneById($procutoId);
+
+                if (!$productoClass->notificarStockBajo($producto)) {
+                    $this->errorMessage = $productoClass->errorMessage;
+                    return false;
+                }
                 $producto->setExistencia(intval($producto->getExistencia()) - 1);
                 $this->_em->persist($producto);
                 $this->_em->flush();
@@ -68,6 +73,11 @@ class Cliente {
             }
         } else {
             $producto = $this->_em->getRepository('WbcAdministratorBundle:Producto')->findOneById($procutos);
+            if (!$productoClass->notificarStockBajo($producto)) {
+                $this->errorMessage = $productoClass->errorMessage;
+                return false;
+            }
+
             $producto->setExistencia(intval($producto->getExistencia()) - 1);
             $this->_em->persist($producto);
             $this->total = intval($producto->getPrecioVenta());

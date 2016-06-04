@@ -32,4 +32,20 @@ class EncargadoLogistica {
         return $users;
     }
 
+    /**
+     * Listado de todas las ventas realizadas y factura
+     * @return array
+     */
+    public function generarReporteDeVentas() {
+
+        $query = $this->_em->createQuery("SELECT f.id facturaId, f.creacion, f.total, v.id ventaId, u.first_name, u.last_name FROM Wbc\AdministratorBundle\Entity\Factura f JOIN f.venta v JOIN v.user u ORDER BY f.id ASC");
+
+        $data = $query->getResult();
+
+        if (empty($data)) {
+            return null;
+        }
+        return $data;
+    }
+
 }
